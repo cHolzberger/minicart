@@ -13,9 +13,14 @@ module.exports = function (grunt) {
         },
 
         browserify: {
+            options: {
+                transform: [
+                    "browserify-handlebars"
+                ]
+            },
             all: {
                 files: {
-                    'dist/minicart.js': ['src/**/*.js']
+                    'dist/minicart.js': 'src/**.js'
                 }
             }
         },

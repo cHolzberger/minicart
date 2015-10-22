@@ -6,7 +6,7 @@
     "name": "Jeff Harrell",
     "url": "https://github.com/jeffharrell/"
   },
-	"main": "dist/minicart.js",
+  "main": "dist/minicart.js",
   "keywords": [
     "paypal",
     "cart",
@@ -34,20 +34,26 @@
     "node": ">=0.10.3"
   },
   "dependencies": {
-    "ejs": "^0.8.4"
+    "ejs": "^2.3.4",
+    "handlebars": "^4.0.3"
   },
   "devDependencies": {
     "browserify": "^2.35.0",
+    "browserify-handlebars": "^1.0.0",
+    "function-bind": "^1.0.2",
     "grunt": "^0.4.1",
     "grunt-banner": "^0.2.0",
     "grunt-browserify": "^1.2.11",
     "grunt-cli": "^0.1.9",
+    "grunt-contrib-handlebars": "^0.11.0",
     "grunt-contrib-jshint": "^0.6.4",
     "grunt-contrib-uglify": "^0.2.4",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-mocha": "^0.4.1",
     "grunt-mocha-test": "^0.7.0",
+    "grunt-mocha-webdriver": "^1.2.2",
     "istanbul": "^0.2.0",
-    "mocha": "^1.13.0"
+    "mocha": "^1.13.0",
+    "phantomjs": "^1.9.18"
   }
 }

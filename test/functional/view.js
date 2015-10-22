@@ -1,7 +1,7 @@
 /*global assert:true */
 
 'use strict';
-
+Function.prototype.bind = require('function-bind');
 
 var minicart = window.paypal.minicart;
 var config = minicart.config;
