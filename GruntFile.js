@@ -15,7 +15,7 @@ module.exports = function (grunt) {
         browserify: {
             options: {
                 transform: [
-                    "browserify-handlebars"
+                    "hbsfy"
                 ]
             },
             all: {

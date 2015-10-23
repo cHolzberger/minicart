@@ -1,7 +1,7 @@
 /*global assert:true */
 
 'use strict';
-Function.prototype.bind = require('function-bind');
+//Function.prototype.bind = require('function-bind');
 
 var minicart = window.paypal.minicart;
 var config = minicart.config;
@@ -246,6 +246,13 @@ describe('View', function () {
         assert(getItem(0).name === 'Test item 1');
     });
 
+    it('should update display price with 2 digits', function () {
+        minicart.cart.add(mockData[0]);
+
+        var item = minicart.cart.items(0);
+        item.set('quantity', 2);
+        assert(getItem(0).amount === '$2.00');
+    });
 
     it('should update items via the API', function () {
         minicart.cart.add(mockData[0]);

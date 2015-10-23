@@ -1,11 +1,23 @@
 'use strict';
 
+var Handlebars = require('hbsfy/runtime');
+Handlebars.registerHelper('addOne', function (items) {
+    return items + 1;
+});
 
-var ejs = require('ejs');
+module.exports = function template(hbsTemplate, data) {
+    var items = data.cart.items();
+    var settings = data.cart.settings();
+    var hasItems = data.hasItems = !!items.length;
+
+    data.priceFormat = { format: true, currency: data.cart.settings('currency_code') };
+    data.totalFormat = { format: true, showCode: true };
 
 
-module.exports = function template(str, data) {
-    return ejs.render(str, data);
+    if (!hasItems) {
+        data.form_css_class = 'minicart-empty';
+    }
+    return hbsTemplate(data);
 };
 
 

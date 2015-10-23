@@ -1,0 +1,74 @@
+{{#with cart}}
+
+    <form method="post" class="{{form_css_class}}" action="{{config.action}}" target="{{config.target}}">
+    <button type="button" class="minicart-closer">&times;</button>
+
+    <ul class="nav nav-tabs nav-justified">
+        <li>Step 1</li>
+        <li>Step 2</li>
+        <li>Step 3</li>
+    </ul>
+    <ul>
+        {{#each items}}
+           {{! <% for (var i= 0, idx = i + 1, len = items.length; i < len; i++, idx++) { %>}}
+            <li class="minicart-item">
+                <div class="minicart-details-name">
+                    <a class="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
+                    <ul class="minicart-attributes">
+                        {{#if (get "item_number")}}
+                        <li>
+                            {{get "item_number"}}
+                            <input type="hidden" name="item_number_{{addOne @index}}" value="{{get "item_number"}}" />
+                        </li>
+                        {{/if}}
+                        {{#if (discount)}}
+                        <li>
+                            {{@root/config.strings.discount}} {{discount @root/priceFormat}}
+                            <input type="hidden" name="discount_amount_{{addOne @index}}" value="{{discount}}"/>
+                        </li>
+                        {{/if}}
+                        {{#each options}}
+                        {{!<% for (var options = items[i].options(), j = 0, len2 = options.length; j < len2; j++) { %>}}
+                        <li>
+                            {{key}}: {{value}}
+                            <input type="hidden" name="on{{@index}}_{{addOne @../index}}" value="{{key}}"/>
+                            <input type="hidden" name="os{{@index}}_{{addOne @../index}}" value="{{value}}"/>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="minicart-details-quantity">
+                    <input class="minicart-quantity" data-minicart-idx="{{@index}}" name="quantity_{{addOne @index}}" type="text"
+                           pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off" />
+                </div>
+                <div class="minicart-details-remove">
+                    <button type="button" class="minicart-remove" data-minicart-idx="{{@index}}">&times;</button>
+                </div>
+                <div class="minicart-details-price">
+                    <span class="minicart-price">{{total @root/priceFormat}}</span>
+                </div>
+                <input type="hidden" name="item_name_{{addOne @index}}" value="{{get "item_name"}}" />
+                <input type="hidden" name="amount_{{addOne @index}}" value="{{get 'amount' }}"/>
+                <input type="hidden" name="shipping_{{addOne @index}}" value="{{get "shipping"}}" />
+                <input type="hidden" name="shipping2_{{addOne @index}}" value="{{get "shipping2"}}" />
+            </li>
+        {{/each}}
+    </ul>
+    <div class="minicart-footer">
+        {{#if @root/hasItems}}
+        <div class="minicart-subtotal">
+            {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
+        </div>
+        <button class="minicart-submit" type="submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}">{{{@root/config.strings.button}}}
+        </button>
+        {{else}}
+        <p class="minicart-empty-text">{{{@root/config.strings.empty}}}</p>
+        {{/if}}
+    </div>
+    <input type="hidden" name="cmd" value="_cart"/>
+    <input type="hidden" name="upload" value="1"/>
+    {{#each settings}}
+    <input type="hidden" name="{{@key}}" value="{{.}}"/>
+    {{/each}}
+</form>
+{{/with}}

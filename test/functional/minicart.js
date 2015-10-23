@@ -2,7 +2,7 @@
 
 
 'use strict';
-Function.prototype.bind = require('function-bind');
+//Function.prototype.bind = require('function-bind');
 
 describe('Minicart', function () {
 
