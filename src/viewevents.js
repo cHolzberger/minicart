@@ -10,17 +10,17 @@ module.exports = viewevents = {
 
     click: function (evt) {
         var target = evt.target,
-            className = target.className;
+            minicartRole = target.getAttribute(constants.ITEM_ROLE);
 
         if (this.isShowing) {
             // Cart close button
-            if (className === constants.CLOSER_CLASS) {
+            if (minicartRole === constants.CLOSER_CLASS) {
                 this.hide();
             // Product remove button
-            } else if (className === constants.REMOVE_CLASS) {
+            } else if (minicartRole === constants.REMOVE_CLASS) {
                 this.model.cart.remove(target.getAttribute(constants.DATA_IDX));
             // Product quantity input
-            } else if (className === constants.QUANTITY_CLASS) {
+            } else if (minicartRole === constants.QUANTITY_CLASS) {
                 target[target.setSelectionRange ? 'setSelectionRange' : 'select'](0, 999);
             // Outside the cart
             } else if (!(/input|button|select|option/i.test(target.tagName))) {
@@ -42,8 +42,8 @@ module.exports = viewevents = {
         var that = this,
             target = evt.target,
             timer;
-
-        if (target.className === constants.QUANTITY_CLASS) {
+        var minicartRole = target.getAttribute(constants.ITEM_ROLE);
+        if (minicartRole === constants.QUANTITY_CLASS) {
             timer = setTimeout(function () {
                 var idx = parseInt(target.getAttribute(constants.DATA_IDX), 10),
                     cart = that.model.cart,

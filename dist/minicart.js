@@ -8,7 +8,7 @@
  * @license MIT <https://github.com/jeffharrell/minicart/raw/master/LICENSE.md>
  */
 
-;(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -644,7 +644,8 @@ module.exports = exports['default'];
 
 
 },{"./utils":18}],15:[function(require,module,exports){
-var global=typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {};/* global window */
+(function (global){
+/* global window */
 'use strict';
 
 exports.__esModule = true;
@@ -664,6 +665,7 @@ exports['default'] = function (Handlebars) {
 module.exports = exports['default'];
 
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],16:[function(require,module,exports){
 'use strict';
 
@@ -1387,9 +1389,9 @@ var defaults = module.exports = {
 
     duration: 30,
 
-    template: require('./themes/znaps/index.hbs'),
+    template: require('./themes/default/index.hbs'),
 
-    styles: '@keyframes pop-in {    0% { opacity: 0; transform: scale(0.1); }    60% { opacity: 1; transform: scale(1.2); }    100% { transform: scale(1); }}@-webkit-keyframes pop-in {    0% { opacity: 0; -webkit-transform: scale(0.1); }    60% { opacity: 1; -webkit-transform: scale(1.2); }    100% { -webkit-transform: scale(1); }}@-moz-keyframes pop-in {    0% { opacity: 0; -moz-transform: scale(0.1); }    60% { opacity: 1; -moz-transform: scale(1.2); }    100% { -moz-transform: scale(1); }}.minicart-showing #PPMiniCart {    display: block;    transform: translateZ(0);    -webkit-transform: translateZ(0);    -moz-transform: translateZ(0);    animation: pop-in 0.25s;    -webkit-animation: pop-in 0.25s;    -moz-animation: pop-in 0.25s;}#PPMiniCart {    display: none;    position: fixed;    left: 50%;    top: 75px;}#PPMiniCart form {    position: relative;    width: 400px;    max-height: 400px;    margin-left: -200px;    padding: 10px 10px 40px;    background: #fbfbfb;    border: 1px solid #d7d7d7;    border-radius: 4px;    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);    font: 15px/normal arial, helvetica;    color: #333;}#PPMiniCart form.minicart-empty {    padding-bottom: 10px;    font-size: 16px;    font-weight: bold;}#PPMiniCart ul {    clear: both;    float: left;    width: 380px;    margin: 5px 0 20px;    padding: 10px;    list-style-type: none;    background: #fff;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);}#PPMiniCart .minicart-empty ul {    display: none;}#PPMiniCart .minicart-closer {    float: right;    margin: -12px -10px 0;    padding: 10px;    background: 0;    border: 0;    font-size: 18px;    cursor: pointer;    font-weight: bold;}#PPMiniCart .minicart-item {    clear: left;    padding: 6px 0;    min-height: 25px;}#PPMiniCart .minicart-item + .minicart-item {    border-top: 1px solid #f2f2f2;}#PPMiniCart .minicart-item a {    color: #333;    text-decoration: none;}#PPMiniCart .minicart-details-name {    float: left;    width: 62%;}#PPMiniCart .minicart-details-quantity {    float: left;    width: 15%;}#PPMiniCart .minicart-details-remove {    float: left;    width: 7%;}#PPMiniCart .minicart-details-price {    float: left;    width: 16%;    text-align: right;}#PPMiniCart .minicart-attributes {    margin: 0;    padding: 0;    background: transparent;    border: 0;    border-radius: 0;    box-shadow: none;    color: #999;    font-size: 12px;    line-height: 22px;}#PPMiniCart .minicart-attributes li {    display: inline;}#PPMiniCart .minicart-attributes li:after {    content: ",";}#PPMiniCart .minicart-attributes li:last-child:after {    content: "";}#PPMiniCart .minicart-quantity {    width: 30px;    height: 18px;    padding: 2px 4px;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);    font-size: 13px;    text-align: right;    transition: border linear 0.2s, box-shadow linear 0.2s;    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;}#PPMiniCart .minicart-quantity:hover {    border-color: #0078C1;}#PPMiniCart .minicart-quantity:focus {    border-color: #0078C1;    outline: 0;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);}#PPMiniCart .minicart-remove {    width: 18px;    height: 19px;    margin: 2px 0 0;    padding: 0;    background: #b7b7b7;    border: 1px solid #a3a3a3;    border-radius: 3px;    color: #fff;    font-size: 13px;    opacity: 0.70;    cursor: pointer;}#PPMiniCart .minicart-remove:hover {    opacity: 1;}#PPMiniCart .minicart-footer {    clear: left;}#PPMiniCart .minicart-subtotal {    position: absolute;    bottom: 17px;    padding-left: 6px;    left: 10px;    font-size: 16px;    font-weight: bold;}#PPMiniCart .minicart-submit {    position: absolute;    bottom: 10px;    right: 10px;    min-width: 153px;    height: 33px;    margin-right: 6px;    padding: 0 9px;    border: 1px solid #ffc727;    border-radius: 5px;    color: #000;    text-shadow: 1px 1px 1px #fff6e9;    cursor: pointer;    background: #ffaa00;    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZjZlOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmFhMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);    background: -moz-linear-gradient(top, #fff6e9 0%, #ffaa00 100%);    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff6e9), color-stop(100%,#ffaa00));    background: -webkit-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -o-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: -ms-linear-gradient(top, #fff6e9 0%,#ffaa00 100%);    background: linear-gradient(to bottom, #fff6e9 0%,#ffaa00 100%);}#PPMiniCart .minicart-submit img {    vertical-align: middle;    padding: 4px 0 0 2px;}',
+    styles: '$STYLES$',
 
     strings: {
         button: 'Check Out with <img src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.1/paypal_65x18.png" width="65" height="18" alt="PayPal" />',
@@ -1411,7 +1413,7 @@ module.exports.load = function load(userConfig) {
     return mixin(defaults, userConfig);
 };
 
-},{"./themes/znaps/index.hbs":26,"./util/mixin":31}],23:[function(require,module,exports){
+},{"./themes/default/index.hbs":26,"./util/mixin":31}],23:[function(require,module,exports){
 'use strict';
 
 
@@ -1439,7 +1441,9 @@ module.exports = {
 
     SUBMIT_CLASS: 'minicart-submit',
 
-    DATA_IDX: 'data-minicart-idx'
+    DATA_IDX: 'data-minicart-idx',
+
+    ITEM_ROLE: 'data-minicart-role'
 
 };
 
@@ -1777,115 +1781,115 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.action : stack1), depth0))
     + "\" target=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.target : stack1), depth0))
-    + "\">\n    <button type=\"button\" class=\"minicart-closer\">&times;</button>\n\n    <ul class=\"nav nav-tabs nav-justified\">\n        <li>Step 1</li>\n        <li>Step 2</li>\n        <li>Step 3</li>\n    </ul>\n    <ul>\n"
+    + "\">\n        <button type=\"button\" class=\"minicart-closer\">&times;</button>\n\n        <ul class=\"nav nav-tabs nav-justified\">\n            <li>Step 1</li>\n            <li>Step 2</li>\n            <li>Step 3</li>\n        </ul>\n        <ul>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </ul>\n    <div class=\"minicart-footer\">\n"
+    + "        </ul>\n        <div class=\"minicart-footer\">\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.program(11, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <input type=\"hidden\" name=\"cmd\" value=\"_cart\"/>\n    <input type=\"hidden\" name=\"upload\" value=\"1\"/>\n"
+    + "        </div>\n        <input type=\"hidden\" name=\"cmd\" value=\"_cart\"/>\n        <input type=\"hidden\" name=\"upload\" value=\"1\"/>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.settings : depth0),{"name":"each","hash":{},"fn":container.program(13, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "</form>\n";
+    + "    </form>\n";
 },"2":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
-  return "            <li class=\"minicart-item\">\n                <div class=\"minicart-details-name\">\n                    <a class=\"minicart-name\" href=\""
+  return "                <li data-minicart-role=\"minicart-item\">\n                    <div data-minicart-role=\"minicart-details-name\">\n                        <a data-minicart-role=\"minicart-name\" href=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"href",{"name":"get","hash":{},"data":data}))
     + "\">"
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_name",{"name":"get","hash":{},"data":data}))
-    + "</a>\n                    <ul class=\"minicart-attributes\">\n"
+    + "</a>\n                        <ul data-minicart-role=\"minicart-attributes\">\n"
     + ((stack1 = helpers["if"].call(alias1,(helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_number",{"name":"get","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(3, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers["if"].call(alias1,(helpers.discount || (depth0 && depth0.discount) || alias2).call(alias1,{"name":"discount","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(5, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.options : depth0),{"name":"each","hash":{},"fn":container.program(7, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "                    </ul>\n                </div>\n                <div class=\"minicart-details-quantity\">\n                    <input class=\"minicart-quantity\" data-minicart-idx=\""
+    + "                        </ul>\n                    </div>\n                    <div class=\"minicart-details-quantity\">\n                        <input data-minicart-role=\"minicart-quantity\" data-minicart-idx=\""
     + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias4 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\" name=\"quantity_"
+    + "\"\n                               name=\"quantity_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
-    + "\" type=\"text\"\n                           pattern=\"[0-9]*\" value=\""
+    + "\" type=\"text\"\n                               pattern=\"[0-9]*\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"quantity",{"name":"get","hash":{},"data":data}))
-    + "\" autocomplete=\"off\" />\n                </div>\n                <div class=\"minicart-details-remove\">\n                    <button type=\"button\" class=\"minicart-remove\" data-minicart-idx=\""
+    + "\" autocomplete=\"off\"/>\n                    </div>\n                    <div class=\"minicart-details-remove\">\n                        <button type=\"button\" data-minicart-role=\"minicart-remove\" data-minicart-idx=\""
     + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias4 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">&times;</button>\n                </div>\n                <div class=\"minicart-details-price\">\n                    <span class=\"minicart-price\">"
+    + "\">&times;</button>\n                    </div>\n                    <div class=\"minicart-details-price\">\n                        <span data-minicart-role=\"minicart-price\">"
     + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"total","hash":{},"data":data}))
-    + "</span>\n                </div>\n                <input type=\"hidden\" name=\"item_name_"
+    + "</span>\n                    </div>\n                    <input type=\"hidden\" name=\"item_name_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_name",{"name":"get","hash":{},"data":data}))
-    + "\" />\n                <input type=\"hidden\" name=\"amount_"
+    + "\"/>\n                    <input type=\"hidden\" name=\"amount_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"amount",{"name":"get","hash":{},"data":data}))
-    + "\"/>\n                <input type=\"hidden\" name=\"shipping_"
+    + "\"/>\n                    <input type=\"hidden\" name=\"shipping_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"shipping",{"name":"get","hash":{},"data":data}))
-    + "\" />\n                <input type=\"hidden\" name=\"shipping2_"
+    + "\"/>\n                    <input type=\"hidden\" name=\"shipping2_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"shipping2",{"name":"get","hash":{},"data":data}))
-    + "\" />\n            </li>\n";
+    + "\"/>\n                </li>\n";
 },"3":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "                        <li>\n                            "
+  return "                                <li>\n                                    "
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_number",{"name":"get","hash":{},"data":data}))
-    + "\n                            <input type=\"hidden\" name=\"item_number_"
+    + "\n                                    <input type=\"hidden\" name=\"item_number_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
-    + "\" value=\""
+    + "\"\n                                           value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_number",{"name":"get","hash":{},"data":data}))
-    + "\" />\n                        </li>\n";
+    + "\"/>\n                                </li>\n";
 },"5":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=container.escapeExpression, alias2=depth0 != null ? depth0 : {}, alias3=helpers.helperMissing;
 
-  return "                        <li>\n                            "
+  return "                                <li>\n                                    "
     + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.discount), depth0))
     + " "
     + alias1((helpers.discount || (depth0 && depth0.discount) || alias3).call(alias2,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"discount","hash":{},"data":data}))
-    + "\n                            <input type=\"hidden\" name=\"discount_amount_"
+    + "\n                                    <input type=\"hidden\" name=\"discount_amount_"
     + alias1((helpers.addOne || (depth0 && depth0.addOne) || alias3).call(alias2,(data && data.index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias1(((helper = (helper = helpers.discount || (depth0 != null ? depth0.discount : depth0)) != null ? helper : alias3),(typeof helper === "function" ? helper.call(alias2,{"name":"discount","hash":{},"data":data}) : helper)))
-    + "\"/>\n                        </li>\n";
+    + "\"/>\n                                </li>\n";
 },"7":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "                        <li>\n                            "
+  return "                                <li>\n                                    "
     + alias4(((helper = (helper = helpers.key || (depth0 != null ? depth0.key : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data}) : helper)))
     + ": "
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
-    + "\n                            <input type=\"hidden\" name=\"on"
+    + "\n                                    <input type=\"hidden\" name=\"on"
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "_"
     + alias4((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(container.data(data, 1) && container.data(data, 1).index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias4(((helper = (helper = helpers.key || (depth0 != null ? depth0.key : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"key","hash":{},"data":data}) : helper)))
-    + "\"/>\n                            <input type=\"hidden\" name=\"os"
+    + "\"/>\n                                    <input type=\"hidden\" name=\"os"
     + alias4(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "_"
     + alias4((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(container.data(data, 1) && container.data(data, 1).index),{"name":"addOne","hash":{},"data":data}))
     + "\" value=\""
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
-    + "\"/>\n                        </li>\n";
+    + "\"/>\n                                </li>\n";
 },"9":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda, alias2=container.escapeExpression;
 
-  return "        <div class=\"minicart-subtotal\">\n            "
+  return "                <div data-minicart-role=\"minicart-subtotal\">\n                    "
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.subtotal), depth0))
     + " "
     + alias2((helpers.total || (depth0 && depth0.total) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.totalFormat),{"name":"total","hash":{},"data":data}))
-    + "\n        </div>\n        <button class=\"minicart-submit\" type=\"submit\" data-minicart-alt=\""
+    + "\n                </div>\n                <button data-minicart-role=\"minicart-submit\" type=\"submit\"\n                        data-minicart-alt=\""
     + alias2(alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.buttonAlt), depth0))
     + "\">"
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.button), depth0)) != null ? stack1 : "")
-    + "\n        </button>\n";
+    + "\n                </button>\n";
 },"11":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "        <p class=\"minicart-empty-text\">"
+  return "                <p class=\"minicart-empty-text\">"
     + ((stack1 = container.lambda(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.empty), depth0)) != null ? stack1 : "")
     + "</p>\n";
 },"13":function(container,depth0,helpers,partials,data) {
     var helper, alias1=container.escapeExpression;
 
-  return "    <input type=\"hidden\" name=\""
+  return "            <input type=\"hidden\" name=\""
     + alias1(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"key","hash":{},"data":data}) : helper)))
     + "\" value=\""
     + alias1(container.lambda(depth0, depth0))
@@ -2349,6 +2353,7 @@ proto.destroy = function () {
 'use strict';
 
 var Handlebars = require('hbsfy/runtime');
+
 Handlebars.registerHelper('addOne', function (items) {
     return items + 1;
 });
@@ -2552,17 +2557,17 @@ module.exports = viewevents = {
 
     click: function (evt) {
         var target = evt.target,
-            className = target.className;
+            minicartRole = target.getAttribute(constants.ITEM_ROLE);
 
         if (this.isShowing) {
             // Cart close button
-            if (className === constants.CLOSER_CLASS) {
+            if (minicartRole === constants.CLOSER_CLASS) {
                 this.hide();
             // Product remove button
-            } else if (className === constants.REMOVE_CLASS) {
+            } else if (minicartRole === constants.REMOVE_CLASS) {
                 this.model.cart.remove(target.getAttribute(constants.DATA_IDX));
             // Product quantity input
-            } else if (className === constants.QUANTITY_CLASS) {
+            } else if (minicartRole === constants.QUANTITY_CLASS) {
                 target[target.setSelectionRange ? 'setSelectionRange' : 'select'](0, 999);
             // Outside the cart
             } else if (!(/input|button|select|option/i.test(target.tagName))) {
@@ -2584,8 +2589,8 @@ module.exports = viewevents = {
         var that = this,
             target = evt.target,
             timer;
-
-        if (target.className === constants.QUANTITY_CLASS) {
+        var minicartRole = target.getAttribute(constants.ITEM_ROLE);
+        if (minicartRole === constants.QUANTITY_CLASS) {
             timer = setTimeout(function () {
                 var idx = parseInt(target.getAttribute(constants.DATA_IDX), 10),
                     cart = that.model.cart,
@@ -2637,5 +2642,4 @@ module.exports = viewevents = {
 
 };
 
-},{"./constants":23,"./util/events":29}]},{},[21,22,23,24,25,35,36])
-;
+},{"./constants":23,"./util/events":29}]},{},[21,22,23,24,25,35,36]);

@@ -55,12 +55,12 @@
                     </thead>
                     <tbody>
                     {{#each items}}
-                        <tr class="minicart-item">
+                        <tr data-minicart-role="minicart-item">
                             <td class="cart-td-article ">
-                                <a class="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
+                                <a data-minicart-role="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
                             </td>
                             <td class="card-td-opts">
-                                <ul class="minicart-attributes">
+                                <ul data-minicart-role="minicart-attributes">
                                     {{#if (get "item_number")}}
                                         <li>
                                             {{get "item_number"}}
@@ -88,16 +88,16 @@
                                 </ul>
                             </td>
                             <td class="cart-td-quantity minicart-details-quantity">
-                                <button type="button" class="btn btn-default btn-cart-delete pull-right minicart-remove"
-                                        data-minicart-idx="{{@index}}">X
+                                <button type="button" class="btn btn-default btn-cart-delete pull-right"
+                                        data-minicart-idx="{{@index}}" data-minicart-role="minicart-remove">X
                                 </button>
 
-                                <input class="minicart-quantity" data-minicart-idx="{{@index}}"
+                                <input data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
                                        name="quantity_{{addOne @index}}" type="text"
                                        pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
                             </td>
                             <td class="cart-td-unitprice">
-                                <span class="minicart-price">{{total @root/priceFormat}}</span>
+                                <span data-minicart-role="minicart-price">{{total @root/priceFormat}}</span>
                             </td>
                             <td class="cart-td-sum">FIXME: € 99.95,-*
                                 <input type="hidden" name="item_name_{{addOne @index}}" value="{{get "item_name"}}"/>
@@ -116,7 +116,7 @@
                         <td>Warenwert:</td>
                         <td>
                             {{#if @root/hasItems}}
-                                <span class="minicart-subtotal">
+                                <span data-minicart-role="minicart-subtotal">
                                     {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
                                 </span>
                             {{/if}}

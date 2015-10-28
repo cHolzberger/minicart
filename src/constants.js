@@ -25,6 +25,8 @@ module.exports = {
 
     SUBMIT_CLASS: 'minicart-submit',
 
-    DATA_IDX: 'data-minicart-idx'
+    DATA_IDX: 'data-minicart-idx',
+
+    ITEM_ROLE: 'data-minicart-role'
 
 };

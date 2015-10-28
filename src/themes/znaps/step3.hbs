@@ -100,5 +100,7 @@
     </div>
 
     <button type="button" class="btn btn-default pull-left">zurück zu Schritt 2</button>
-    <button type="button" class="btn btn-success pull-right">kostenpflichtig bestellen</button>
+        {{#if @root/hasItems}}
+                <button type="button" type="submit" data-minicart-role="minicart-submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}" class="btn btn-success pull-right">{{{@root/config.strings.button}}}</button>
+        {{/if}}
 </div>

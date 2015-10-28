@@ -11,10 +11,10 @@
         <ul>
             {{#each items}}
             {{! <% for (var i= 0, idx = i + 1, len = items.length; i < len; i++, idx++) { %>}}
-                <li class="minicart-item">
-                    <div class="minicart-details-name">
-                        <a class="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
-                        <ul class="minicart-attributes">
+                <li data-minicart-role="minicart-item">
+                    <div data-minicart-role="minicart-details-name">
+                        <a data-minicart-role="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
+                        <ul data-minicart-role="minicart-attributes">
                             {{#if (get "item_number")}}
                                 <li>
                                     {{get "item_number"}}
@@ -39,15 +39,15 @@
                         </ul>
                     </div>
                     <div class="minicart-details-quantity">
-                        <input class="minicart-quantity" data-minicart-idx="{{@index}}"
+                        <input data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
                                name="quantity_{{addOne @index}}" type="text"
                                pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
                     </div>
                     <div class="minicart-details-remove">
-                        <button type="button" class="minicart-remove" data-minicart-idx="{{@index}}">&times;</button>
+                        <button type="button" data-minicart-role="minicart-remove" data-minicart-idx="{{@index}}">&times;</button>
                     </div>
                     <div class="minicart-details-price">
-                        <span class="minicart-price">{{total @root/priceFormat}}</span>
+                        <span data-minicart-role="minicart-price">{{total @root/priceFormat}}</span>
                     </div>
                     <input type="hidden" name="item_name_{{addOne @index}}" value="{{get "item_name"}}"/>
                     <input type="hidden" name="amount_{{addOne @index}}" value="{{get 'amount' }}"/>
@@ -58,10 +58,10 @@
         </ul>
         <div class="minicart-footer">
             {{#if @root/hasItems}}
-                <div class="minicart-subtotal">
+                <div data-minicart-role="minicart-subtotal">
                     {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
                 </div>
-                <button class="minicart-submit" type="submit"
+                <button data-minicart-role="minicart-submit" type="submit"
                         data-minicart-alt="{{@root/config.strings.buttonAlt}}">{{{@root/config.strings.button}}}
                 </button>
             {{else}}
