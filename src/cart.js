@@ -159,6 +159,22 @@ Cart.prototype.shipping_global = function shipping_global(config) {
     return currency(result, config);
 };
 
+
+/**
+ * Returns included taxes
+ *
+ * @param {object} config (Optional) Currency formatting options.
+ * @return {number|string}
+ */
+Cart.prototype.tax = function tax(config) {
+    var tax_rate = parseFloat(this.config.tax)/100 || 0;
+    config = config || {};
+    config.currency = this.settings('currency_code');
+    var result = tax_rate * this.total();
+
+    return currency(result, config);
+};
+
 /**
  * Returns the cart total without discounts.
  *
@@ -192,6 +208,7 @@ Cart.prototype.total = function total(config) {
 
     result += this.subtotal();
     result -= this.discount();
+    result += this.shipping_global();
 
     config = config || {};
     config.currency = this.settings('currency_code');

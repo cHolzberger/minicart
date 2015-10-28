@@ -58,8 +58,9 @@
         </ul>
         <div class="minicart-footer">
             {{#if @root/hasItems}}
+                {{@root/config.strings.subtotal}}
                 <div data-minicart-role="minicart-subtotal">
-                    {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
+                    {{total @root/totalFormat}}
                 </div>
                 <button data-minicart-role="minicart-submit" type="submit"
                         data-minicart-alt="{{@root/config.strings.buttonAlt}}">{{{@root/config.strings.button}}}

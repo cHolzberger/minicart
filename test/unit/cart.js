@@ -134,6 +134,10 @@ describe('Cart Model', function () {
         assert.strictEqual(cart.total(), 2.34);
     });
 
+    it('tax() is correct', function () {
+        assert.strictEqual(cart.tax(), 2.34*0,19);
+    });
+
 
     it('total() uses percentage discounts', function () {
         cart._settings.discount_rate_cart = 50;

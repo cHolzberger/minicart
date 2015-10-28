@@ -1273,6 +1273,22 @@ Cart.prototype.shipping_global = function shipping_global(config) {
     return currency(result, config);
 };
 
+
+/**
+ * Returns included taxes
+ *
+ * @param {object} config (Optional) Currency formatting options.
+ * @return {number|string}
+ */
+Cart.prototype.tax = function tax(config) {
+    var tax_rate = parseFloat(this.config.tax)/100 || 0;
+    config = config || {};
+    config.currency = this.settings('currency_code');
+    var result = tax_rate * this.total();
+
+    return currency(result, config);
+};
+
 /**
  * Returns the cart total without discounts.
  *
@@ -1306,6 +1322,7 @@ Cart.prototype.total = function total(config) {
 
     result += this.subtotal();
     result -= this.discount();
+    result += this.shipping_global();
 
     config = config || {};
     config.currency = this.settings('currency_code');
@@ -1408,7 +1425,7 @@ var defaults = module.exports = {
     styles: '$STYLES$',
 
     shipping_global: 3.99,
-
+    tax: 19,
     strings: {
         button: 'Check Out with <img src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.1/paypal_65x18.png" width="65" height="18" alt="PayPal" />',
         subtotal: 'Subtotal:',
@@ -1840,15 +1857,21 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
-    var stack1, alias1=depth0 != null ? depth0 : {};
+    var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
   return "\n    <div class=\"container\" style=\"display: block;\">\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-opts\">Optionen</th>\n\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>zzgl. Versandkosten:</td>\n                        <td><span data-minicart-role=\"minicart-shipping-global\">\n                            "
-    + container.escapeExpression((helpers.shipping_global || (depth0 && depth0.shipping_global) || helpers.helperMissing).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
-    + "\n                            </span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\">€ 142.92,-*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. 19% MwSt.:</td>\n                        <td>€ 27.15,-*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n\n    </div>\n";
+    + alias3((helpers.shipping_global || (depth0 && depth0.shipping_global) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
+    + "\n                            </span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\"><span data-minicart-role=\"minicart-price\">"
+    + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.totalFormat),{"name":"total","hash":{},"data":data}))
+    + "</span>                            *</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. "
+    + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
+    + "% MwSt.:</td>\n                        <td>"
+    + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
+    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n\n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
@@ -1932,12 +1955,10 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias4(((helper = (helper = helpers.value || (depth0 != null ? depth0.value : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"value","hash":{},"data":data}) : helper)))
     + "\"/>\n                                        </li>\n";
 },"9":function(container,depth0,helpers,partials,data) {
-    var stack1, alias1=container.escapeExpression;
+    var stack1;
 
   return "                                <span data-minicart-role=\"minicart-subtotal\">\n                                    "
-    + alias1(container.lambda(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.subtotal), depth0))
-    + " "
-    + alias1((helpers.total || (depth0 && depth0.total) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.totalFormat),{"name":"total","hash":{},"data":data}))
+    + container.escapeExpression((helpers.subtotal || (depth0 && depth0.subtotal) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"subtotal","hash":{},"data":data}))
     + "\n                                </span>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1;

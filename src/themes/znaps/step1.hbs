@@ -117,7 +117,7 @@
                         <td>
                             {{#if @root/hasItems}}
                                 <span data-minicart-role="minicart-subtotal">
-                                    {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
+                                    {{subtotal @root/priceFormat}}
                                 </span>
                             {{/if}}
                         </td>
@@ -134,13 +134,13 @@
                         <td></td>
                         <td></td>
                         <td class="font-bold">Gesamtpreis:</td>
-                        <td class="font-bold">€ 142.92,-*</td>
+                        <td class="font-bold"><span data-minicart-role="minicart-price">{{total @root/totalFormat}}</span>                            *</td>
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
-                        <td>inkl. 19% MwSt.:</td>
-                        <td>€ 27.15,-*</td>
+                        <td>inkl. {{@root/config.tax}}% MwSt.:</td>
+                        <td>{{tax @root/priceFormat}}*</td>
                     </tr>
                     </tfoot>
                 </table>

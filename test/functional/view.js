@@ -485,14 +485,14 @@ describe('View', function () {
         minicart.cart.add(mockData[0]);
         minicart.cart.add(mockData[1]);
 
-        assert(document.querySelectorAll('[data-minicart-role=minicart-subtotal]')[0].textContent.replace(/^\s+|\s+$/g, '') === 'Subtotal: $5.00 USD');
+        assert(document.querySelectorAll('[data-minicart-role=minicart-subtotal]')[0].textContent.replace(/^\s+|\s+$/g, '') === '$5.00');
     });
 
 
     it('should display a subtotal with correct currency', function () {
         minicart.cart.add(mockData[5]);
 
-        assert(document.querySelectorAll('[data-minicart-role=minicart-subtotal]')[0].textContent.replace(/^\s+|\s+$/g, '') === 'Subtotal: €0.50');
+        assert(document.querySelectorAll('[data-minicart-role=minicart-subtotal]')[0].textContent.replace(/^\s+|\s+$/g, '') === '€0.50');
     });
 
 
