@@ -15,7 +15,8 @@ module.exports = function (grunt) {
         browserify: {
             options: {
                 transform: [
-                    "hbsfy"
+                    ["hbsfy", {traverse: true,"precompilerOptions": {
+                        "knownHelpersOnly": false}}]
                 ]
             },
             all: {
@@ -86,12 +87,12 @@ module.exports = function (grunt) {
     grunt.task.loadNpmTasks('grunt-mocha');
     grunt.task.loadNpmTasks('grunt-mocha-test');
     grunt.task.loadNpmTasks('grunt-browserify');
-    grunt.task.loadTasks('./tasks');
+    //grunt.task.loadTasks('./tasks');
 
 
     // Tasks
     grunt.registerTask('lint',  ['jshint']);
     grunt.registerTask('test',  ['lint', 'build', 'mochaTest', 'mocha']);
-    grunt.registerTask('build', ['browserify', 'themify', 'uglify', 'usebanner']);
+    grunt.registerTask('build', ['browserify', 'uglify', 'usebanner']);
 
 };
