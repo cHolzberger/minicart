@@ -1,6 +1,7 @@
 'use strict';
 
 var Handlebars = require('hbsfy/runtime');
+
 Handlebars.registerHelper('addOne', function (items) {
     return items + 1;
 });
