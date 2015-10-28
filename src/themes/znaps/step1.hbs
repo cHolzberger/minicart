@@ -1,0 +1,154 @@
+{{#with cart}}
+
+    <div class="container" style="display: block;">
+
+        <h2 class="text-center">Warenkorb</h2>
+
+        <div class="col-md-12 alert alert-info text-center" role="alert">
+            <b>Bitte beachten Sie</b><br/>
+            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>
+            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-6 col-xs-12 cart-box">
+                <h3>Zahlungsart</h3>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Zahlungsart" id="Zahlungsart" value="Zahlungsart" checked>
+                        <b>PayPal</b><br/>
+                        Sicher, einfach und schnell. Inklusive Käuferschutz.
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 cart-box">
+                <h3>Versandart</h3>
+
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="Versandart" id="Versandart" value="Versandart" checked>
+                        <b>DHL</b><br/>
+                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.
+                    </label>
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-md-12 cart-box">
+
+                <h3>Warenkorb bearbeiten</h3>
+
+                <table class="table table-striped table-hover table-responsive cart-table">
+                    <thead>
+                    <tr>
+                        <th class="cart-th-article">Artikel</th>
+                        <th class="cart-th-opts">Optionen</th>
+
+                        <th class="cart-th-quantity">Anzahl</th>
+                        <th class="cart-th-unitprice">Stückpreis</th>
+                        <th class="cart-th-sum">Summe</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each items}}
+                        <tr class="minicart-item">
+                            <td class="cart-td-article ">
+                                <a class="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
+                            </td>
+                            <td class="card-td-opts">
+                                <ul class="minicart-attributes">
+                                    {{#if (get "item_number")}}
+                                        <li>
+                                            {{get "item_number"}}
+                                            <input type="hidden" name="item_number_{{addOne @index}}"
+                                                   value="{{get "item_number"}}"/>
+                                        </li>
+                                    {{/if}}
+                                    {{#if (discount)}}
+                                        <li>
+                                            {{@root/config.strings.discount}} {{discount @root/priceFormat}}
+                                            <input type="hidden" name="discount_amount_{{addOne @index}}"
+                                                   value="{{discount}}"/>
+                                        </li>
+                                    {{/if}}
+                                    {{#each options}}
+                                    {{!<% for (var options = items[i].options(), j = 0, len2 = options.length; j < len2; j++) { %>}}
+                                        <li>
+                                            {{key}}: {{value}}
+                                            <input type="hidden" name="on{{@index}}_{{addOne @../index}}"
+                                                   value="{{key}}"/>
+                                            <input type="hidden" name="os{{@index}}_{{addOne @../index}}"
+                                                   value="{{value}}"/>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </td>
+                            <td class="cart-td-quantity minicart-details-quantity">
+                                <button type="button" class="btn btn-default btn-cart-delete pull-right minicart-remove"
+                                        data-minicart-idx="{{@index}}">X
+                                </button>
+
+                                <input class="minicart-quantity" data-minicart-idx="{{@index}}"
+                                       name="quantity_{{addOne @index}}" type="text"
+                                       pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
+                            </td>
+                            <td class="cart-td-unitprice">
+                                <span class="minicart-price">{{total @root/priceFormat}}</span>
+                            </td>
+                            <td class="cart-td-sum">FIXME: € 99.95,-*
+                                <input type="hidden" name="item_name_{{addOne @index}}" value="{{get "item_name"}}"/>
+                                <input type="hidden" name="amount_{{addOne @index}}" value="{{get 'amount' }}"/>
+                                <input type="hidden" name="shipping_{{addOne @index}}" value="{{get "shipping"}}"/>
+                                <input type="hidden" name="shipping2_{{addOne @index}}" value="{{get "shipping2"}}"/>
+                            </td>
+                        </tr>
+                    {{/each}}
+
+                    </tbody>
+                    <tfoot class="minicart-footer">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>Warenwert:</td>
+                        <td>
+                            {{#if @root/hasItems}}
+                                <span class="minicart-subtotal">
+                                    {{@root/config.strings.subtotal}} {{total @root/totalFormat}}
+                                </span>
+                            {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>zzgl. Versandkosten:</td>
+                        <td>€ 3.99,-*</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="font-bold">Gesamtpreis:</td>
+                        <td class="font-bold">€ 142.92,-*</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>inkl. 19% MwSt.:</td>
+                        <td>€ 27.15,-*</td>
+                    </tr>
+                    </tfoot>
+                </table>
+
+            </div>
+
+        </div>
+
+        <button type="button" class="btn btn-default pull-left">weiter einkaufen</button>
+        <button type="button" class="btn btn-success pull-right">Schritt 2: Ihre Adresse</button>
+
+    </div>
+{{/with}}
