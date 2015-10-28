@@ -14,10 +14,8 @@ module.exports = function template(hbsTemplate, data) {
     data.priceFormat = { format: true, currency: data.cart.settings('currency_code') };
     data.totalFormat = { format: true, showCode: true };
 
+    data.form_css_class = hasItems ? 'minicart-full' : 'minicart-empty';
 
-    if (!hasItems) {
-        data.form_css_class = 'minicart-empty';
-    }
     return hbsTemplate(data);
 };
 

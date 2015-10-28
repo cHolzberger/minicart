@@ -1,3 +1,4 @@
+{{#with cart}}
 <div class="container" style="display: block;">
     <h2 class="text-center">Prüfen und Bestellen</h2>
 
@@ -56,44 +57,47 @@
             </tr>
             </thead>
             <tbody>
+{{#each items}}
             <tr>
-                <td class="cart-td-article">Micro USB Set</td>
-                <td class="cart-td-quantity">5</td>
-                <td class="cart-td-unitprice">€ 19.99,-*</td>
-                <td class="cart-td-sum">€ 99.95,-*</td>
+                <td class="cart-td-article">{{get "item_name"}}</td>
+                <td class="cart-td-quantity">{{get "quantity"}}</td>
+                <td class="cart-td-unitprice">{{amount @root/priceFormat}}*</td>
+                <td class="cart-td-sum">{{total @root/priceFormat}}*</td>
             </tr>
-            <tr>
-                <td class="cart-td-article">Lightning Set</td>
-                <td class="cart-td-quantity">2
-                </td>
-                <td class="cart-td-unitprice">€ 19.99,-*</td>
-                <td class="cart-td-sum">€ 38.98,-*</td>
-            </tr>
+{{/each}}
             </tbody>
             <tfoot>
             <tr>
                 <td></td>
                 <td></td>
                 <td>Warenwert:</td>
-                <td>€ 138.93,-*</td>
+                <td>
+                    {{#if @root/hasItems}}
+                        <span >
+                            {{subtotal @root/priceFormat}}
+                        </span>
+                    {{/if}}
+                </td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td>zzgl. Versandkosten:</td>
-                <td>€ 3.99,-*</td>
+                <td><span>
+                    {{shipping_global @root/priceFormat}}
+                </span>*</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
                 <td class="font-bold">Gesamtpreis:</td>
-                <td class="font-bold">€ 142.92,-*</td>
+                <td class="font-bold"><span>{{total @root/totalFormat}}</span>*</td>
             </tr>
             <tr>
                 <td></td>
                 <td></td>
-                <td>inkl. 19% MwSt.:</td>
-                <td>€ 27.15,-*</td>
+                <td>inkl. {{@root/config.tax}}% MwSt.:</td>
+                <td>{{tax @root/priceFormat}}*</td>
             </tr>
             </tfoot>
         </table>
@@ -104,3 +108,4 @@
                 <button type="button" type="submit" data-minicart-role="minicart-submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}" class="btn btn-success pull-right">{{{@root/config.strings.button}}}</button>
         {{/if}}
 </div>
+{{/with}}

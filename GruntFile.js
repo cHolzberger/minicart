@@ -1,6 +1,6 @@
 'use strict';
 
-
+var theme = "znaps";
 module.exports = function (grunt) {
 
     // Configuration
@@ -21,7 +21,7 @@ module.exports = function (grunt) {
             },
             all: {
                 files: {
-                    'dist/minicart.js': 'src/**.js'
+                    'dist/minicart.js': ['src/*.js', 'src/theme/'+theme+'/*.js', 'src/util/*.js', "src/theme/*.hbs"]
                 }
             }
         },

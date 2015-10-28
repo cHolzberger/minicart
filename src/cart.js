@@ -170,7 +170,7 @@ Cart.prototype.tax = function tax(config) {
     var tax_rate = parseFloat(this.config.tax)/100 || 0;
     config = config || {};
     config.currency = this.settings('currency_code');
-    var result = tax_rate * this.total();
+    var result =  this.total() / (1+tax_rate );
 
     return currency(result, config);
 };
