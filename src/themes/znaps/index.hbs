@@ -1,13 +1,10 @@
 <form method="post" class="{{form_css_class}}" action="{{config.action}}" target="{{config.target}}">
-    <button type="button" data-minicart-role="minicart-closer">&times;</button>
 
-    <section class="content content-cart">
 
-        {{> ./head.hbs}}
-        {{> ./step1.hbs}}
-        {{> ./step2.hbs}}
-        {{> ./step3.hbs}}
-    </section>
+    {{> ./head.hbs}}
+    {{> ./step1.hbs}}
+    {{> ./step2.hbs}}
+    {{> ./step3.hbs}}
     {{#with cart}}
         <input type="hidden" name="cmd" value="_cart"/>
         <input type="hidden" name="upload" value="1"/>

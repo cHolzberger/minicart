@@ -1833,12 +1833,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.action : stack1), depth0))
     + "\" target=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.target : stack1), depth0))
-    + "\">\n    <button type=\"button\" data-minicart-role=\"minicart-closer\">&times;</button>\n\n    <section class=\"content content-cart\">\n\n"
-    + ((stack1 = container.invokePartial(partials["./head.hbs"],depth0,{"name":"./head.hbs","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step1.hbs"],depth0,{"name":"./step1.hbs","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step2.hbs"],depth0,{"name":"./step2.hbs","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step3.hbs"],depth0,{"name":"./step3.hbs","data":data,"indent":"        ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "    </section>\n"
+    + "\">\n\n\n"
+    + ((stack1 = container.invokePartial(partials["./head.hbs"],depth0,{"name":"./head.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./step1.hbs"],depth0,{"name":"./step1.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./step2.hbs"],depth0,{"name":"./step2.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./step3.hbs"],depth0,{"name":"./step3.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.cart : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</form>\n\n";
 },"usePartial":true,"useData":true});
