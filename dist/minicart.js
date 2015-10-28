@@ -1131,10 +1131,11 @@ var Product = require('./product'),
  * @param {string} name Name of the cart (used as a key for storage)
  * @param {duration} number Time in milliseconds that the cart data should persist
  */
-function Cart(name, duration) {
+function Cart(name, duration, cfg) {
     var data, items, settings, len, i;
 
     this._items = [];
+    this.config = cfg ? cfg : {shipping_global:0};
     this._settings = { bn: constants.BN };
 
     Pubsub.call(this);
@@ -1258,6 +1259,19 @@ Cart.prototype.discount = function discount(config) {
     return currency(result, config);
 };
 
+/**
+ * Returns global shipping costs
+ *
+ * @param {object} config (Optional) Currency formatting options.
+ * @return {number|string}
+ */
+Cart.prototype.shipping_global = function shipping_global(config) {
+    var result = parseFloat(this.config.shipping_global) || 0;
+    config = config || {};
+    config.currency = this.settings('currency_code');
+
+    return currency(result, config);
+};
 
 /**
  * Returns the cart total without discounts.
@@ -1393,6 +1407,8 @@ var defaults = module.exports = {
 
     styles: '$STYLES$',
 
+    shipping_global: 3.99,
+
     strings: {
         button: 'Check Out with <img src="//cdnjs.cloudflare.com/ajax/libs/minicart/3.0.1/paypal_65x18.png" width="65" height="18" alt="PayPal" />',
         subtotal: 'Subtotal:',
@@ -1421,7 +1437,7 @@ module.exports = {
 
     COMMANDS: { _cart: true, _xclick: true, _donations: true },
 
-    SETTINGS: /^(?:business|currency_code|lc|paymentaction|no_shipping|cn|no_note|invoice|handling_cart|weight_cart|weight_unit|tax_cart|discount_amount_cart|discount_rate_cart|page_style|image_url|cpp_|cs|cbt|return|cancel_return|notify_url|rm|custom|charset)/,
+    SETTINGS: /^(?:business|shipping_global|currency_code|lc|paymentaction|no_shipping|cn|no_note|invoice|handling_cart|weight_cart|weight_unit|tax_cart|discount_amount_cart|discount_rate_cart|page_style|image_url|cpp_|cs|cbt|return|cancel_return|notify_url|rm|custom|charset)/,
 
     BN: 'MiniCart_AddToCart_WPS_US',
 
@@ -1467,7 +1483,7 @@ var Cart = require('./cart'),
  */
 minicart.render = function (userConfig) {
     confModel = minicart.config = config.load(userConfig);
-    cartModel = minicart.cart = new Cart(confModel.name, confModel.duration);
+    cartModel = minicart.cart = new Cart(confModel.name, confModel.duration, confModel);
     viewModel = minicart.view = new View({
         config: confModel,
         cart: cartModel
@@ -1830,7 +1846,9 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>zzgl. Versandkosten:</td>\n                        <td>€ 3.99,-*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\">€ 142.92,-*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. 19% MwSt.:</td>\n                        <td>€ 27.15,-*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n\n    </div>\n";
+    + "                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>zzgl. Versandkosten:</td>\n                        <td><span data-minicart-role=\"minicart-shipping-global\">\n                            "
+    + container.escapeExpression((helpers.shipping_global || (depth0 && depth0.shipping_global) || helpers.helperMissing).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
+    + "\n                            </span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\">€ 142.92,-*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. 19% MwSt.:</td>\n                        <td>€ 27.15,-*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n\n    </div>\n";
 },"2":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 

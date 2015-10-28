@@ -403,6 +403,10 @@ describe('View', function () {
         assert(form.elements.item_number_1.value === '123ABC');
     });
 
+    it('should display global shipping costs', function () {
+        minicart.cart.add(mockData[1]);
+        assert(document.querySelectorAll('[data-minicart-role=minicart-shipping-global]')[0].textContent.replace(/^\s+|\s+$/g, '') === '$3.99');
+    });
 
     it('should display item amounts', function () {
         minicart.cart.add(mockData[1]);

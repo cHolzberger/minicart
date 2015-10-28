@@ -17,7 +17,7 @@ var Cart = require('./cart'),
  */
 minicart.render = function (userConfig) {
     confModel = minicart.config = config.load(userConfig);
-    cartModel = minicart.cart = new Cart(confModel.name, confModel.duration);
+    cartModel = minicart.cart = new Cart(confModel.name, confModel.duration, confModel);
     viewModel = minicart.view = new View({
         config: confModel,
         cart: cartModel

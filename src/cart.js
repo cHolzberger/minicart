@@ -17,10 +17,11 @@ var Product = require('./product'),
  * @param {string} name Name of the cart (used as a key for storage)
  * @param {duration} number Time in milliseconds that the cart data should persist
  */
-function Cart(name, duration) {
+function Cart(name, duration, cfg) {
     var data, items, settings, len, i;
 
     this._items = [];
+    this.config = cfg ? cfg : {shipping_global:0};
     this._settings = { bn: constants.BN };
 
     Pubsub.call(this);
@@ -144,6 +145,19 @@ Cart.prototype.discount = function discount(config) {
     return currency(result, config);
 };
 
+/**
+ * Returns global shipping costs
+ *
+ * @param {object} config (Optional) Currency formatting options.
+ * @return {number|string}
+ */
+Cart.prototype.shipping_global = function shipping_global(config) {
+    var result = parseFloat(this.config.shipping_global) || 0;
+    config = config || {};
+    config.currency = this.settings('currency_code');
+
+    return currency(result, config);
+};
 
 /**
  * Returns the cart total without discounts.
