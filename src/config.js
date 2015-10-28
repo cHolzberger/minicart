@@ -16,7 +16,7 @@ var defaults = module.exports = {
 
     duration: 30,
 
-    template: require('./themes/default/index.hbs'),
+    template: require('./themes/znaps/index.hbs'),
 
     styles: '$STYLES$',
 

@@ -61,6 +61,7 @@ function getItem(idx) {
         return {
             name: li.getElementsByTagName('a')[0].textContent.replace(/^\s+|\s+$/g, ''),
             quantity: li.querySelectorAll('[data-minicart-role=minicart-quantity]')[0].value,
+            item_price: li.querySelectorAll('[data-minicart-role=minicart-price-single]')[0].textContent.replace(/^\s+|\s+$/g, ''),
             amount: li.querySelectorAll('[data-minicart-role=minicart-price]')[0].textContent.replace(/^\s+|\s+$/g, ''),
             options: attrsData
         };
@@ -254,6 +255,15 @@ describe('View', function () {
         assert(getItem(0).amount === '$2.00');
     });
 
+
+    it('should update display single item price with 2 digits', function () {
+        minicart.cart.add(mockData[0]);
+
+        var item = minicart.cart.items(0);
+        item.set('quantity', 2);
+        assert(getItem(0).item_price === '$1.00');
+    });
+
     it('should update items via the API', function () {
         minicart.cart.add(mockData[0]);
 
@@ -262,6 +272,7 @@ describe('View', function () {
 
         assert(getItem(0).quantity === '2');
         assert(getItem(0).amount === '$2.00');
+        assert(getItem(0).item_price ==='$1.00');
     });
 
 
@@ -396,6 +407,11 @@ describe('View', function () {
     it('should display item amounts', function () {
         minicart.cart.add(mockData[1]);
         assert(getItem(0).amount === '$4.00');
+    });
+
+    it('should display item price', function () {
+        minicart.cart.add(mockData[1]);
+        assert(getItem(0).item_price === '$2.00');
     });
 
 

@@ -97,9 +97,9 @@
                                        pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
                             </td>
                             <td class="cart-td-unitprice">
-                                <span data-minicart-role="minicart-price">{{total @root/priceFormat}}</span>
+                                <span data-minicart-role="minicart-price-single">{{amount @root/priceFormat}}</span>
                             </td>
-                            <td class="cart-td-sum">FIXME: € 99.95,-*
+                            <td class="cart-td-sum"><span data-minicart-role="minicart-price">{{total @root/priceFormat}}</span>*
                                 <input type="hidden" name="item_name_{{addOne @index}}" value="{{get "item_name"}}"/>
                                 <input type="hidden" name="amount_{{addOne @index}}" value="{{get 'amount' }}"/>
                                 <input type="hidden" name="shipping_{{addOne @index}}" value="{{get "shipping"}}"/>
