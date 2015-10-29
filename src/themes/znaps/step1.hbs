@@ -12,7 +12,7 @@
 
         <div class="row">
 
-            <div class="col-md-6 col-xs-12 cart-box">
+            <div class="col-md-6 col-xs-12 col-sm-6 cart-box">
                 <h3>Zahlungsart</h3>
 
                 <div class="radio">
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-xs-12 cart-box">
+            <div class="col-md-6 col-xs-12 col-sm-6 cart-box">
                 <h3>Versandart</h3>
 
                 <div class="radio">
@@ -103,7 +103,7 @@
                         <td></td>
                         <td></td>
                         <td class="font-bold">Gesamtpreis:</td>
-                        <td class="font-bold"><span data-minicart-role="minicart-price">{{total @root/totalFormat}}</span>                            *</td>
+                        <td class="font-bold"><span data-minicart-role="minicart-price">{{total @root/totalFormat}}</span>*</td>
                     </tr>
                     <tr>
                         <td></td>
@@ -118,6 +118,6 @@
 
         </div>
 
-        <button type="button" class="btn btn-default pull-left col-md-5 hidden-xs">weiter einkaufen</button>
-        <button type="button" class="btn btn-success pull-right col-md-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">Schritt 2: Ihre Adresse</button>
+        <button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 hidden-xs">weiter einkaufen</button>
+        <button type="button" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">Schritt 2: Ihre Adresse</button>
 {{/with}}

@@ -1,13 +1,3 @@
-/*!
- * minicart
- * The Mini Cart is a great way to improve your PayPal shopping cart integration.
- *
- * @version 3.0.6
- * @author Jeff Harrell <https://github.com/jeffharrell/>
- * @url http://www.minicartjs.com/
- * @license MIT <https://github.com/jeffharrell/minicart/raw/master/LICENSE.md>
- */
-
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
@@ -100,7 +90,7 @@ var _logger = require('./logger');
 
 var _logger2 = _interopRequireDefault(_logger);
 
-var VERSION = '4.0.3';
+var VERSION = '4.0.4';
 exports.VERSION = VERSION;
 var COMPILER_REVISION = 7;
 
@@ -152,7 +142,7 @@ HandlebarsEnvironment.prototype = {
       _utils.extend(this.partials, name);
     } else {
       if (typeof partial === 'undefined') {
-        throw new _exception2['default']('Attempting to register a partial as undefined');
+        throw new _exception2['default']('Attempting to register a partial called "' + name + '" as undefined');
       }
       this.partials[name] = partial;
     }
@@ -1984,7 +1974,7 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
+  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -1992,11 +1982,11 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3((helpers.shipping_global || (depth0 && depth0.shipping_global) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
     + "\n                            </span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\"><span data-minicart-role=\"minicart-price\">"
     + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.totalFormat),{"name":"total","hash":{},"data":data}))
-    + "</span>                            *</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. "
+    + "</span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>inkl. "
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n                        <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left col-md-5 hidden-xs\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">Schritt 2: Ihre Adresse</button>\n";
+    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 hidden-xs\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">Schritt 2: Ihre Adresse</button>\n";
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
@@ -2114,7 +2104,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":4,"required":true,"label":"PLZ","name":"shipping:plz"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"shipping:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./land.hbs"],depth0,{"name":"./land.hbs","hash":{"required":true,"label":"Land","name":"shipping:land"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\" name=\"newsletter\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
+    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\" name=\"newsletter\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
 },"usePartial":true,"useData":true});
 
 },{"./anrede.hbs":26,"./input.hbs":29,"./land.hbs":30,"hbsfy/runtime":20}],33:[function(require,module,exports){
@@ -2167,7 +2157,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n            <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n        </tr>\n        </tfoot>\n    </table>\n</div>\n\n<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
+    + "*</td>\n        </tr>\n        </tfoot>\n    </table>\n</div>\n\n<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n";
 },"2":function(container,depth0,helpers,partials,data) {
@@ -2191,9 +2181,9 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda;
 
-  return "            <button type=\"button\" type=\"submit\" data-minicart-role=\"minicart-submit\" data-minicart-alt=\""
+  return "            <button type=\"submit\" data-minicart-role=\"minicart-submit\" data-minicart-alt=\""
     + container.escapeExpression(alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.buttonAlt), depth0))
-    + "\" class=\"btn btn-success pull-right col-md-5 col-xs-12\">"
+    + "\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\">"
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.button), depth0)) != null ? stack1 : "")
     + "</button>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
@@ -2736,9 +2726,10 @@ function View(model) {
  * Tells the view to redraw
  */
 View.prototype.redraw = function redraw() {
-    events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     if ( this.el.innerHTML === '') {
+        events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
         this.el.innerHTML = template(config.template, this.model);
+        events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     }
     for ( var state_name in config.template_states) {
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
@@ -2751,7 +2742,6 @@ View.prototype.redraw = function redraw() {
 
         }
     }
-    events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
 /**
