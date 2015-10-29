@@ -18,7 +18,7 @@
         <h3>Rechnungsadresse</h3>
 
         <p>
-            Herr Max Mustermann<br/>
+            Herr {{getFormValue "billing:vorname"}} {{getFormValue "billing:nachname"}}<br/>
             Musterstrasse 123<br/>
             12345 Musterstadt<br/>
             Deutschland
@@ -103,7 +103,7 @@
         </table>
     </div>
 
-    <button type="button" class="btn btn-default pull-left">zurück zu Schritt 2</button>
+    <button type="button" class="btn btn-default pull-left"  data-minicart-role="change-state" data-minicart-target-state="step2">zurück zu Schritt 2</button>
         {{#if @root/hasItems}}
                 <button type="button" type="submit" data-minicart-role="minicart-submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}" class="btn btn-success pull-right">{{{@root/config.strings.button}}}</button>
         {{/if}}

@@ -11,12 +11,14 @@ module.exports = viewevents = {
     click: function (evt) {
         var target = evt.target,
             minicartRole = target.getAttribute(constants.ITEM_ROLE);
-
         if (this.isShowing) {
             // Cart close button
             if (minicartRole === constants.CLOSER_CLASS) {
                 this.hide();
+                // Change state button
+            } else if (minicartRole === constants.CHANGE_STATE_CLASS) {
             // Product remove button
+                this.changeState(target.getAttribute(constants.TARGET_STATE));
             } else if (minicartRole === constants.REMOVE_CLASS) {
                 this.model.cart.remove(target.getAttribute(constants.DATA_IDX));
             // Product quantity input
@@ -58,6 +60,8 @@ module.exports = viewevents = {
                     }
                 }
             }, constants.KEYUP_TIMEOUT);
+        } else if (minicartRole === constants.INPUT_PERSIST) {
+            this.model.cart.form[target.getAttribute('name')] = target.value;
         }
     },
 

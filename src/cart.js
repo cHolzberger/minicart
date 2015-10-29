@@ -23,7 +23,7 @@ function Cart(name, duration, cfg) {
     this._items = [];
     this.config = cfg ? cfg : {shipping_global:0};
     this._settings = { bn: constants.BN };
-
+    this.form = {};
     Pubsub.call(this);
     Storage.call(this, name, duration);
 

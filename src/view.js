@@ -45,7 +45,9 @@ function View(model) {
  */
 View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
-    this.el.innerHTML = template(config.template, this.model);
+    if ( this.el.innerHTML === '') {
+        this.el.innerHTML = template(config.template, this.model);
+    }
     for ( var state_name in config.template_states) {
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
         state_container.innerHTML = template(config.template_states[state_name],this.model);
@@ -60,7 +62,15 @@ View.prototype.redraw = function redraw() {
     events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
+/**
+ * Change the current state
+ */
 
+View.prototype.changeState = function changeState (state) {
+    console.log(state);
+    this.state=state;
+    this.redraw();
+};
 /**
  * Tells the view to show
  */
@@ -68,7 +78,7 @@ View.prototype.show = function show() {
     if (!this.isShowing) {
         css.add(document.body, constants.SHOWING_CLASS);
         this.isShowing = true;
-        document.querySelectorAll('[data-minicart-role=\'state:default\']')[0].style.display='block';
+        document.querySelectorAll('[data-minicart-role=\'state:'+this.state+'\']')[0].style.display='block';
     }
 };
 

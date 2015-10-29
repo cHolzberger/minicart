@@ -1137,7 +1137,7 @@ function Cart(name, duration, cfg) {
     this._items = [];
     this.config = cfg ? cfg : {shipping_global:0};
     this._settings = { bn: constants.BN };
-
+    this.form = {};
     Pubsub.call(this);
     Storage.call(this, name, duration);
 
@@ -1401,7 +1401,7 @@ Cart.prototype.destroy = function destroy() {
 
 module.exports = Cart;
 
-},{"./constants":23,"./product":25,"./util/currency":32,"./util/mixin":35,"./util/pubsub":36,"./util/storage":37}],22:[function(require,module,exports){
+},{"./constants":23,"./product":25,"./util/currency":33,"./util/mixin":36,"./util/pubsub":37,"./util/storage":38}],22:[function(require,module,exports){
 'use strict';
 
 
@@ -1451,7 +1451,7 @@ module.exports.load = function load(userConfig) {
     return mixin(defaults, userConfig);
 };
 
-},{"./themes/znaps/index.hbs":27,"./themes/znaps/step1.hbs":28,"./themes/znaps/step2.hbs":29,"./themes/znaps/step3.hbs":30,"./util/mixin":35}],23:[function(require,module,exports){
+},{"./themes/znaps/index.hbs":27,"./themes/znaps/step1.hbs":29,"./themes/znaps/step2.hbs":30,"./themes/znaps/step3.hbs":31,"./util/mixin":36}],23:[function(require,module,exports){
 'use strict';
 
 
@@ -1473,6 +1473,10 @@ module.exports = {
 
     QUANTITY_CLASS: 'minicart-quantity',
 
+    CHANGE_STATE_CLASS: 'change-state',
+    TARGET_STATE: 'data-minicart-target-state',
+
+
     ITEM_CLASS: 'minicart-item',
 
     ITEM_CHANGED_CLASS: 'minicart-item-changed',
@@ -1481,8 +1485,9 @@ module.exports = {
 
     DATA_IDX: 'data-minicart-idx',
 
-    ITEM_ROLE: 'data-minicart-role'
+    ITEM_ROLE: 'data-minicart-role',
 
+    INPUT_PERSIST: 'persist'
 };
 
 },{}],24:[function(require,module,exports){
@@ -1542,7 +1547,7 @@ if (typeof window === 'undefined') {
     window.paypal.minicart = minicart;
 }
 
-},{"./cart":21,"./config":22,"./view":39}],25:[function(require,module,exports){
+},{"./cart":21,"./config":22,"./view":40}],25:[function(require,module,exports){
 'use strict';
 
 
@@ -1807,11 +1812,15 @@ Product.prototype.destroy = function destroy() {
 
 module.exports = Product;
 
-},{"./util/currency":32,"./util/mixin":35,"./util/pubsub":36}],26:[function(require,module,exports){
+},{"./util/currency":33,"./util/mixin":36,"./util/pubsub":37}],26:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    <li role=\"presentation\" class=\"active\" data-minicart-target-state=\"state:default\">\n        <a href=\"#\" >\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-target-state=\"state:step2\">\n        <a href=\"#\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-target-state=\"state:step3\">\n        <a href=\"#\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
+    var helper;
+
+  return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    "
+    + container.escapeExpression(((helper = (helper = helpers.test || (depth0 != null ? depth0.test : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"test","hash":{},"data":data}) : helper)))
+    + "\n    <li role=\"presentation\" class=\"active\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":20}],27:[function(require,module,exports){
@@ -1852,6 +1861,42 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },{"./head.hbs":26,"hbsfy/runtime":20}],28:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
+module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
+    var helper;
+
+  return container.escapeExpression(((helper = (helper = helpers.size || (depth0 != null ? depth0.size : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"size","hash":{},"data":data}) : helper)));
+},"3":function(container,depth0,helpers,partials,data) {
+    return "6";
+},"5":function(container,depth0,helpers,partials,data) {
+    return "*";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "required=\"required\"";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
+
+  return "<div class=\"form-group col-md-"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.size : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(3, data, 0),"data":data})) != null ? stack1 : "")
+    + "\">\n    <label for=\""
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\">"
+    + alias4(((helper = (helper = helpers.label || (depth0 != null ? depth0.label : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data}) : helper)))
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.required : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "</label>\n    <input type=\"text\" class=\"form-control\" id=\""
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\" name=\""
+    + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\" placeholder=\""
+    + alias4(((helper = (helper = helpers.label || (depth0 != null ? depth0.label : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"label","hash":{},"data":data}) : helper)))
+    + "\" "
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.required : depth0),{"name":"if","hash":{},"fn":container.program(7, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + " data-minicart-role=\"persist\" value=\""
+    + alias4((helpers.getPersistValue || (depth0 && depth0.getPersistValue) || alias2).call(alias1,(depth0 != null ? depth0.name : depth0),{"name":"getPersistValue","hash":{},"data":data}))
+    + "\">\n</div>\n";
+},"useData":true});
+
+},{"hbsfy/runtime":20}],29:[function(require,module,exports){
+// hbsfy compiled Handlebars template
+var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
@@ -1867,7 +1912,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n                        <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n";
+    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">Schritt 2: Ihre Adresse</button>\n";
 },"2":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
@@ -1962,20 +2007,70 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["with"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.cart : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
 
-},{"hbsfy/runtime":20}],29:[function(require,module,exports){
+},{"hbsfy/runtime":20}],30:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
+var partial$0 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$0);
+var partial$1 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$1);
+var partial$2 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$2);
+var partial$3 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$3);
+var partial$4 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$4);
+var partial$5 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$5);
+var partial$6 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$6);
+var partial$7 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$7);
+var partial$8 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$8);
+var partial$9 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$9);
+var partial$10 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$10);
+var partial$11 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$11);
+var partial$12 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$12);
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "\n\n    <h2 class=\"text-center\">Ihre Adresse</h2>\n\n    <div class=\"col-md-12 alert alert-warning text-center\" role=\"alert\">\n        Füllen Sie bitte alle Pflichfelder aus.\n    </div>\n\n\n    <form class=\"row\">\n\n        <div class=\"cart-box cart-form-contactInfo\">\n            <h3 class=\"col-md-12\">Ihre Kontaktdaten</h3>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Firma</label>\n                <input type=\"text\" class=\"form-control\" id=\"Firma\" placeholder=\"Firma\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Anrede*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option disabled selected>bitte wählen</option>\n                    <option>Herr</option>\n                    <option>Frau</option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"vorname\">Vorname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"vorname\" placeholder=\"Vorname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Nachname\">Nachname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Nachname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse*</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse wiederholen</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-billingAddress\">\n            <h3 class=\"col-md-12\">Ihre Adresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
-},"useData":true});
+    var stack1;
 
-},{"hbsfy/runtime":20}],30:[function(require,module,exports){
+  return "\n\n    <h2 class=\"text-center\">Ihre Adresse</h2>\n\n    <div class=\"col-md-12 alert alert-warning text-center\" role=\"alert\">\n        Füllen Sie bitte alle Pflichfelder aus.\n    </div>\n\n\n    <form class=\"row\">\n\n        <div class=\"cart-box cart-form-contactInfo\">\n            <h3 class=\"col-md-12\">Ihre Kontaktdaten</h3>\n\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Firma","name":"kontakt:firma"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Anrede*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option disabled selected>bitte wählen</option>\n                    <option>Herr</option>\n                    <option>Frau</option>\n                </select>\n            </div>\n\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Vorname","name":"kontakt:vorname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Nachname","name":"kontakt:nachname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"E-Mail Adresse","name":"kontakt:email"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"E-Mail Adresse wiederholen","name":"kontakt:email"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-billingAddress\">\n            <h3 class=\"col-md-12\">Ihre Adresse</h3>\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Vorname","name":"billing:vorname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Nachname","name":"billing:nachname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":12,"required":true,"label":"Straße und Nr.","name":"billing:strasse"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":4,"required":true,"label":"PLZ","name":"billing:plz"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"billing:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":12,"required":true,"label":"Straße und Nr.","name":"billing:strasse"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":4,"required":true,"label":"PLZ","name":"billing:plz"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"billing:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
+},"usePartial":true,"useData":true});
+
+},{"./input.hbs":28,"hbsfy/runtime":20}],31:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "<div class=\"container\" style=\"display: block;\">\n    <h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>AGB und Widerrufsbelehrung</h3>\n\n        <div class=\"checkbox col-md-12\">\n            <label>\n                <input type=\"checkbox\"> Ich akzeptiere die <a href=\"#\">allgemeinen Geschäftsbedingungen</a> und die\n                Bestimmungen zum <a href=\"#\">Datenschutz</a>. Die Informationen zum <a href=\"#\">Widerrufsrecht</a>\n                wurden mir zur Verfügung gestellt.\n            </label>\n        </div>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Rechnungsadresse</h3>\n\n        <p>\n            Herr Max Mustermann<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Lieferadresse</h3>\n\n        <p>\n            Herr Max Mustermann<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Zahlung und Versand</h3>\n\n        <p>\n            <b>Zahlungsart:</b> PayPal<br/>\n            <b>Versandart:</b> DHL\n        </p>\n    </div>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>Warenkorb</h3>\n        <table class=\"table table-striped table-hover table-responsive cart-table\">\n            <thead>\n            <tr>\n                <th class=\"cart-th-article\">Artikel</th>\n                <th class=\"cart-th-quantity\">Anzahl</th>\n                <th class=\"cart-th-unitprice\">Stückpreis</th>\n                <th class=\"cart-th-sum\">Summe</th>\n            </tr>\n            </thead>\n            <tbody>\n"
+  return "<div class=\"container\" style=\"display: block;\">\n    <h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>AGB und Widerrufsbelehrung</h3>\n\n        <div class=\"checkbox col-md-12\">\n            <label>\n                <input type=\"checkbox\"> Ich akzeptiere die <a href=\"#\">allgemeinen Geschäftsbedingungen</a> und die\n                Bestimmungen zum <a href=\"#\">Datenschutz</a>. Die Informationen zum <a href=\"#\">Widerrufsrecht</a>\n                wurden mir zur Verfügung gestellt.\n            </label>\n        </div>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Rechnungsadresse</h3>\n\n        <p>\n            Herr "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:vorname",{"name":"getFormValue","hash":{},"data":data}))
+    + " "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:nachname",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Lieferadresse</h3>\n\n        <p>\n            Herr Max Mustermann<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Zahlung und Versand</h3>\n\n        <p>\n            <b>Zahlungsart:</b> PayPal<br/>\n            <b>Versandart:</b> DHL\n        </p>\n    </div>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>Warenkorb</h3>\n        <table class=\"table table-striped table-hover table-responsive cart-table\">\n            <thead>\n            <tr>\n                <th class=\"cart-th-article\">Artikel</th>\n                <th class=\"cart-th-quantity\">Anzahl</th>\n                <th class=\"cart-th-unitprice\">Stückpreis</th>\n                <th class=\"cart-th-sum\">Summe</th>\n            </tr>\n            </thead>\n            <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "            </tbody>\n            <tfoot>\n            <tr>\n                <td></td>\n                <td></td>\n                <td>Warenwert:</td>\n                <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -1987,7 +2082,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n                <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n            </tr>\n            </tfoot>\n        </table>\n    </div>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\">zurück zu Schritt 2</button>\n"
+    + "*</td>\n            </tr>\n            </tfoot>\n        </table>\n    </div>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"2":function(container,depth0,helpers,partials,data) {
@@ -2022,7 +2117,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
   return ((stack1 = helpers["with"].call(depth0 != null ? depth0 : {},(depth0 != null ? depth0.cart : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
 
-},{"hbsfy/runtime":20}],31:[function(require,module,exports){
+},{"hbsfy/runtime":20}],32:[function(require,module,exports){
 /* jshint quotmark:double */
 
 
@@ -2083,7 +2178,7 @@ module.exports.inject = function inject(el, str) {
     }
 };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 'use strict';
 
 
@@ -2172,7 +2267,7 @@ module.exports = function currency(amount, config) {
     return result;
 };
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 'use strict';
 
 
@@ -2295,7 +2390,7 @@ module.exports = (function (window, document) {
 
 })(typeof window === 'undefined' ? null : window, typeof document === 'undefined' ? null : document);
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 'use strict';
 
 
@@ -2337,7 +2432,7 @@ var forms = module.exports = {
     }
 
 };
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 'use strict';
 
 
@@ -2361,7 +2456,7 @@ var mixin = module.exports = function mixin(dest, source) {
     return dest;
 };
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 'use strict';
 
 
@@ -2413,7 +2508,7 @@ Pubsub.prototype.fire = function on(name) {
 
 module.exports = Pubsub;
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 'use strict';
 
 
@@ -2471,13 +2566,21 @@ proto.destroy = function () {
     }
 };
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 'use strict';
 
 var Handlebars = require('hbsfy/runtime');
 
 Handlebars.registerHelper('addOne', function (items) {
     return items + 1;
+});
+
+Handlebars.registerHelper('getFormValue', function (id) {
+    return window.paypal.minicart.cart.form[id] ? window.paypal.minicart.cart.form[id] : '';
+});
+
+Handlebars.registerHelper('getPersistValue', function (id) {
+    return window.paypal.minicart.cart.form[id] ? window.paypal.minicart.cart.form[id] : '';
 });
 
 module.exports = function template(hbsTemplate, data) {
@@ -2501,7 +2604,7 @@ if (!String.prototype.trim) {
     };
 }
 
-},{"hbsfy/runtime":20}],39:[function(require,module,exports){
+},{"hbsfy/runtime":20}],40:[function(require,module,exports){
 'use strict';
 
 
@@ -2549,7 +2652,9 @@ function View(model) {
  */
 View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
-    this.el.innerHTML = template(config.template, this.model);
+    if ( this.el.innerHTML === '') {
+        this.el.innerHTML = template(config.template, this.model);
+    }
     for ( var state_name in config.template_states) {
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
         state_container.innerHTML = template(config.template_states[state_name],this.model);
@@ -2564,7 +2669,15 @@ View.prototype.redraw = function redraw() {
     events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
+/**
+ * Change the current state
+ */
 
+View.prototype.changeState = function changeState (state) {
+    console.log(state);
+    this.state=state;
+    this.redraw();
+};
 /**
  * Tells the view to show
  */
@@ -2572,7 +2685,7 @@ View.prototype.show = function show() {
     if (!this.isShowing) {
         css.add(document.body, constants.SHOWING_CLASS);
         this.isShowing = true;
-        document.querySelectorAll('[data-minicart-role=\'state:default\']')[0].style.display='block';
+        document.querySelectorAll('[data-minicart-role=\'state:'+this.state+'\']')[0].style.display='block';
     }
 };
 
@@ -2677,7 +2790,7 @@ View.prototype.removeItem = function removeItem(idx) {
 
 module.exports = View;
 
-},{"./config":22,"./constants":23,"./util/css":31,"./util/events":33,"./util/forms":34,"./util/template":38,"./viewevents":40}],40:[function(require,module,exports){
+},{"./config":22,"./constants":23,"./util/css":32,"./util/events":34,"./util/forms":35,"./util/template":39,"./viewevents":41}],41:[function(require,module,exports){
 'use strict';
 
 
@@ -2691,12 +2804,14 @@ module.exports = viewevents = {
     click: function (evt) {
         var target = evt.target,
             minicartRole = target.getAttribute(constants.ITEM_ROLE);
-
         if (this.isShowing) {
             // Cart close button
             if (minicartRole === constants.CLOSER_CLASS) {
                 this.hide();
+                // Change state button
+            } else if (minicartRole === constants.CHANGE_STATE_CLASS) {
             // Product remove button
+                this.changeState(target.getAttribute(constants.TARGET_STATE));
             } else if (minicartRole === constants.REMOVE_CLASS) {
                 this.model.cart.remove(target.getAttribute(constants.DATA_IDX));
             // Product quantity input
@@ -2738,6 +2853,8 @@ module.exports = viewevents = {
                     }
                 }
             }, constants.KEYUP_TIMEOUT);
+        } else if (minicartRole === constants.INPUT_PERSIST) {
+            this.model.cart.form[target.getAttribute('name')] = target.value;
         }
     },
 
@@ -2775,4 +2892,4 @@ module.exports = viewevents = {
 
 };
 
-},{"./constants":23,"./util/events":33}]},{},[21,22,23,24,25,39,40,31,32,33,34,35,36,37,38]);
+},{"./constants":23,"./util/events":34}]},{},[21,22,23,24,25,40,41,32,33,34,35,36,37,38,39]);

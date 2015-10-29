@@ -6,6 +6,14 @@ Handlebars.registerHelper('addOne', function (items) {
     return items + 1;
 });
 
+Handlebars.registerHelper('getFormValue', function (id) {
+    return window.paypal.minicart.cart.form[id] ? window.paypal.minicart.cart.form[id] : '';
+});
+
+Handlebars.registerHelper('getPersistValue', function (id) {
+    return window.paypal.minicart.cart.form[id] ? window.paypal.minicart.cart.form[id] : '';
+});
+
 module.exports = function template(hbsTemplate, data) {
     var items = data.cart.items();
     var settings = data.cart.settings();

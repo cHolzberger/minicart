@@ -19,6 +19,10 @@ module.exports = {
 
     QUANTITY_CLASS: 'minicart-quantity',
 
+    CHANGE_STATE_CLASS: 'change-state',
+    TARGET_STATE: 'data-minicart-target-state',
+
+
     ITEM_CLASS: 'minicart-item',
 
     ITEM_CHANGED_CLASS: 'minicart-item-changed',
@@ -27,6 +31,7 @@ module.exports = {
 
     DATA_IDX: 'data-minicart-idx',
 
-    ITEM_ROLE: 'data-minicart-role'
+    ITEM_ROLE: 'data-minicart-role',
 
+    INPUT_PERSIST: 'persist'
 };
