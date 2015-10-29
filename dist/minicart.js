@@ -1,3 +1,13 @@
+/*!
+ * minicart
+ * The Mini Cart is a great way to improve your PayPal shopping cart integration.
+ *
+ * @version 3.0.6
+ * @author Jeff Harrell <https://github.com/jeffharrell/>
+ * @url http://www.minicartjs.com/
+ * @license MIT <https://github.com/jeffharrell/minicart/raw/master/LICENSE.md>
+ */
+
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
@@ -1274,7 +1284,7 @@ Cart.prototype.tax = function tax(config) {
     var tax_rate = parseFloat(this.config.tax)/100 || 0;
     config = config || {};
     config.currency = this.settings('currency_code');
-    var result =  this.total() / (1+tax_rate );
+    var result =  this.total() - (this.total() / (1+tax_rate ));
 
     return currency(result, config);
 };
@@ -1411,6 +1421,11 @@ var defaults = module.exports = {
     duration: 30,
 
     template: require('./themes/znaps/index.hbs'),
+    template_states: {
+        'default': require('./themes/znaps/step1.hbs'),
+        'step2': require('./themes/znaps/step2.hbs'),
+        'step3': require('./themes/znaps/step3.hbs')
+    },
 
     styles: '$STYLES$',
 
@@ -1436,7 +1451,7 @@ module.exports.load = function load(userConfig) {
     return mixin(defaults, userConfig);
 };
 
-},{"./themes/znaps/index.hbs":27,"./util/mixin":35}],23:[function(require,module,exports){
+},{"./themes/znaps/index.hbs":27,"./themes/znaps/step1.hbs":28,"./themes/znaps/step2.hbs":29,"./themes/znaps/step3.hbs":30,"./util/mixin":35}],23:[function(require,module,exports){
 'use strict';
 
 
@@ -1796,7 +1811,7 @@ module.exports = Product;
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    <li role=\"presentation\" class=\"active\">\n        <a href=\"#\">\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\">\n        <a href=\"#\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\">\n        <a href=\"#\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
+    return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    <li role=\"presentation\" class=\"active\" data-minicart-target-state=\"state:default\">\n        <a href=\"#\" >\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-target-state=\"state:step2\">\n        <a href=\"#\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-target-state=\"state:step3\">\n        <a href=\"#\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":20}],27:[function(require,module,exports){
@@ -1804,12 +1819,6 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 var HandlebarsCompiler = require('hbsfy/runtime');
 var partial$0 = require('./head.hbs');
 HandlebarsCompiler.registerPartial('./head.hbs', partial$0);
-var partial$1 = require('./step1.hbs');
-HandlebarsCompiler.registerPartial('./step1.hbs', partial$1);
-var partial$2 = require('./step2.hbs');
-HandlebarsCompiler.registerPartial('./step2.hbs', partial$2);
-var partial$3 = require('./step3.hbs');
-HandlebarsCompiler.registerPartial('./step3.hbs', partial$3);
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -1833,22 +1842,20 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.action : stack1), depth0))
     + "\" target=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.target : stack1), depth0))
-    + "\">\n\n\n"
+    + "\">\n"
     + ((stack1 = container.invokePartial(partials["./head.hbs"],depth0,{"name":"./head.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step1.hbs"],depth0,{"name":"./step1.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step2.hbs"],depth0,{"name":"./step2.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ((stack1 = container.invokePartial(partials["./step3.hbs"],depth0,{"name":"./step3.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "    <div class=\"container\" style=\"display: none;\" data-minicart-role=\"state:default\">\n        <!-- ./step1.hbs -->\n    </div>\n    <div class=\"container\" style=\"display: none;\" data-minicart-role=\"state:step2\">\n        <!-- ./step2.hbs-->\n    </div>\n    <div class=\"container\" style=\"display: none;\" data-minicart-role=\"state:step3\">\n        <!-- ./step3.hbs-->\n    </div>\n"
     + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.cart : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "</form>\n\n";
 },"usePartial":true,"useData":true});
 
-},{"./head.hbs":26,"./step1.hbs":28,"./step2.hbs":29,"./step3.hbs":30,"hbsfy/runtime":20}],28:[function(require,module,exports){
+},{"./head.hbs":26,"hbsfy/runtime":20}],28:[function(require,module,exports){
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n    <div class=\"container\" style=\"display: block;\">\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-opts\">Optionen</th>\n\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
+  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-opts\">Optionen</th>\n\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(9, data, 0, blockParams, depths),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -1860,7 +1867,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n                        <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n\n    </div>\n";
+    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 2: Ihre Adresse</button>\n";
 },"2":function(container,depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
@@ -1959,7 +1966,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    return "\n<div class=\"container\" style=\"display: block;\">\n\n    <h2 class=\"text-center\">Ihre Adresse</h2>\n\n    <div class=\"col-md-12 alert alert-warning text-center\" role=\"alert\">\n        Füllen Sie bitte alle Pflichfelder aus.\n    </div>\n\n\n    <form class=\"row\">\n\n        <div class=\"cart-box cart-form-contactInfo\">\n            <h3 class=\"col-md-12\">Ihre Kontaktdaten</h3>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Firma</label>\n                <input type=\"text\" class=\"form-control\" id=\"Firma\" placeholder=\"Firma\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Anrede*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option disabled selected>bitte wählen</option>\n                    <option>Herr</option>\n                    <option>Frau</option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"vorname\">Vorname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"vorname\" placeholder=\"Vorname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Nachname\">Nachname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Nachname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse*</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse wiederholen</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-billingAddress\">\n            <h3 class=\"col-md-12\">Ihre Adresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
+    return "\n\n    <h2 class=\"text-center\">Ihre Adresse</h2>\n\n    <div class=\"col-md-12 alert alert-warning text-center\" role=\"alert\">\n        Füllen Sie bitte alle Pflichfelder aus.\n    </div>\n\n\n    <form class=\"row\">\n\n        <div class=\"cart-box cart-form-contactInfo\">\n            <h3 class=\"col-md-12\">Ihre Kontaktdaten</h3>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Firma</label>\n                <input type=\"text\" class=\"form-control\" id=\"Firma\" placeholder=\"Firma\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Firma\">Anrede*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option disabled selected>bitte wählen</option>\n                    <option>Herr</option>\n                    <option>Frau</option>\n                </select>\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"vorname\">Vorname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"vorname\" placeholder=\"Vorname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"Nachname\">Nachname*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Nachname\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse*</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-6\">\n                <label for=\"exampleInputEmail1\">E-Mail Adresse wiederholen</label>\n                <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" placeholder=\"Email\"\n                       required=\"required\">\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-billingAddress\">\n            <h3 class=\"col-md-12\">Ihre Adresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\"\n                       required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\" required=\"required\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Nachname\">Straße und Nr.*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Nachname\" placeholder=\"Straße und Nr.\">\n            </div>\n\n            <div class=\"form-group col-md-4\">\n                <label for=\"PLZ\">PLZ*</label>\n                <input type=\"text\" class=\"form-control\" id=\"PLZ\" placeholder=\"PLZ\">\n            </div>\n\n            <div class=\"form-group col-md-8\">\n                <label for=\"Ort\">Ort*</label>\n                <input type=\"text\" class=\"form-control\" id=\"Ort\" placeholder=\"Ort\">\n            </div>\n\n            <div class=\"form-group col-md-12\">\n                <label for=\"Firma\">Land*</label>\n                <select class=\"form-control\" required=\"required\">\n                    <option>Deutschland</option>\n                </select>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
 },"useData":true});
 
 },{"hbsfy/runtime":20}],30:[function(require,module,exports){
@@ -2520,6 +2527,7 @@ function View(model) {
     this.el = wrapper = document.createElement('div');
     this.model = model;
     this.isShowing = false;
+    this.state = 'default';
 
     // HTML
     wrapper.id = config.name;
@@ -2542,6 +2550,17 @@ function View(model) {
 View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     this.el.innerHTML = template(config.template, this.model);
+    for ( var state_name in config.template_states) {
+        var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
+        state_container.innerHTML = template(config.template_states[state_name],this.model);
+
+        if ( state_name === this.state) {
+            state_container.style.display='block';
+        } else {
+            state_container.style.display='none';
+
+        }
+    }
     events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
@@ -2553,6 +2572,7 @@ View.prototype.show = function show() {
     if (!this.isShowing) {
         css.add(document.body, constants.SHOWING_CLASS);
         this.isShowing = true;
+        document.querySelectorAll('[data-minicart-role=\'state:default\']')[0].style.display='block';
     }
 };
 

@@ -23,6 +23,7 @@ function View(model) {
     this.el = wrapper = document.createElement('div');
     this.model = model;
     this.isShowing = false;
+    this.state = 'default';
 
     // HTML
     wrapper.id = config.name;
@@ -45,6 +46,17 @@ function View(model) {
 View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     this.el.innerHTML = template(config.template, this.model);
+    for ( var state_name in config.template_states) {
+        var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
+        state_container.innerHTML = template(config.template_states[state_name],this.model);
+
+        if ( state_name === this.state) {
+            state_container.style.display='block';
+        } else {
+            state_container.style.display='none';
+
+        }
+    }
     events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
@@ -56,6 +68,7 @@ View.prototype.show = function show() {
     if (!this.isShowing) {
         css.add(document.body, constants.SHOWING_CLASS);
         this.isShowing = true;
+        document.querySelectorAll('[data-minicart-role=\'state:default\']')[0].style.display='block';
     }
 };
 

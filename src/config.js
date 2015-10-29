@@ -17,6 +17,11 @@ var defaults = module.exports = {
     duration: 30,
 
     template: require('./themes/znaps/index.hbs'),
+    template_states: {
+        'default': require('./themes/znaps/step1.hbs'),
+        'step2': require('./themes/znaps/step2.hbs'),
+        'step3': require('./themes/znaps/step3.hbs')
+    },
 
     styles: '$STYLES$',
 

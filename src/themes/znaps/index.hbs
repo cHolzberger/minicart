@@ -1,10 +1,14 @@
 <form method="post" class="{{form_css_class}}" action="{{config.action}}" target="{{config.target}}">
-
-
     {{> ./head.hbs}}
-    {{> ./step1.hbs}}
-    {{> ./step2.hbs}}
-    {{> ./step3.hbs}}
+    <div class="container" style="display: none;" data-minicart-role="state:default">
+        <!-- ./step1.hbs -->
+    </div>
+    <div class="container" style="display: none;" data-minicart-role="state:step2">
+        <!-- ./step2.hbs-->
+    </div>
+    <div class="container" style="display: none;" data-minicart-role="state:step3">
+        <!-- ./step3.hbs-->
+    </div>
     {{#with cart}}
         <input type="hidden" name="cmd" value="_cart"/>
         <input type="hidden" name="upload" value="1"/>

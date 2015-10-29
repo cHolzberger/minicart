@@ -532,6 +532,28 @@ describe('View', function () {
         assert(!button);
     });
 
+    it('should have a default state', function () {
+        var cart, container;
+
+        minicart.view.show();
+
+        cart = document.getElementById(config.name);
+        container = cart.querySelectorAll('[data-minicart-role=\'state:default\']')[0];
+
+        assert(container);
+    });
+
+    it('should have a default state which is visible', function () {
+        var cart, container;
+
+        minicart.view.show();
+
+        cart = document.getElementById(config.name);
+        container = cart.querySelectorAll('[data-minicart-role=\'state:default\']')[0];
+
+        assert(container.style.display==='block');
+    });
+
 
     it('should have a valid data store', function () {
         var data;
