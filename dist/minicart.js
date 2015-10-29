@@ -1,13 +1,3 @@
-/*!
- * minicart
- * The Mini Cart is a great way to improve your PayPal shopping cart integration.
- *
- * @version 3.0.6
- * @author Jeff Harrell <https://github.com/jeffharrell/>
- * @url http://www.minicartjs.com/
- * @license MIT <https://github.com/jeffharrell/minicart/raw/master/LICENSE.md>
- */
-
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
@@ -1854,7 +1844,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 
   return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.test || (depth0 != null ? depth0.test : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"test","hash":{},"data":data}) : helper)))
-    + "\n    <li role=\"presentation\" class=\"active\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"state:default\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
+    + "\n    <li role=\"presentation\" class=\"active\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":20}],28:[function(require,module,exports){
@@ -2094,24 +2084,34 @@ var partial$6 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$6);
 var partial$7 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$7);
-var partial$8 = require('./anrede.hbs');
-HandlebarsCompiler.registerPartial('./anrede.hbs', partial$8);
-var partial$9 = require('./input.hbs');
-HandlebarsCompiler.registerPartial('./input.hbs', partial$9);
+var partial$8 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$8);
+var partial$9 = require('./anrede.hbs');
+HandlebarsCompiler.registerPartial('./anrede.hbs', partial$9);
 var partial$10 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$10);
 var partial$11 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$11);
-var partial$12 = require('./land.hbs');
-HandlebarsCompiler.registerPartial('./land.hbs', partial$12);
-var partial$13 = require('./input.hbs');
-HandlebarsCompiler.registerPartial('./input.hbs', partial$13);
+var partial$12 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$12);
+var partial$13 = require('./land.hbs');
+HandlebarsCompiler.registerPartial('./land.hbs', partial$13);
 var partial$14 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$14);
 var partial$15 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$15);
-var partial$16 = require('./land.hbs');
-HandlebarsCompiler.registerPartial('./land.hbs', partial$16);
+var partial$16 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$16);
+var partial$17 = require('./anrede.hbs');
+HandlebarsCompiler.registerPartial('./anrede.hbs', partial$17);
+var partial$18 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$18);
+var partial$19 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$19);
+var partial$20 = require('./input.hbs');
+HandlebarsCompiler.registerPartial('./input.hbs', partial$20);
+var partial$21 = require('./land.hbs');
+HandlebarsCompiler.registerPartial('./land.hbs', partial$21);
 module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
@@ -2125,6 +2125,8 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"E-Mail Adresse","name":"kontakt:email"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"E-Mail Adresse wiederholen","name":"kontakt:email"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-billingAddress\">\n            <h3 class=\"col-md-12\">Ihre Adresse</h3>\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Firma","name":"billing:firma"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n"
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Vorname","name":"billing:vorname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Nachname","name":"billing:nachname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
@@ -2135,12 +2137,18 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"billing:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["./land.hbs"],depth0,{"name":"./land.hbs","hash":{"required":true,"label":"Land","name":"billing:land"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n\n"
+    + "\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Firma","name":"shipping:firma"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Vorname","name":"shipping:vorname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Nachname","name":"shipping:nachname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = container.invokePartial(partials["./anrede.hbs"],depth0,{"name":"./anrede.hbs","hash":{"required":true,"label":"Anrede","name":"shipping:anrede"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":12,"required":true,"label":"Straße und Nr.","name":"shipping:strasse"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":4,"required":true,"label":"PLZ","name":"shipping:plz"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"shipping:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./land.hbs"],depth0,{"name":"./land.hbs","hash":{"required":true,"label":"Land","name":"shipping:land"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
+    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\" name=\"newsletter\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
 },"usePartial":true,"useData":true});
 
 },{"./anrede.hbs":26,"./input.hbs":29,"./land.hbs":30,"hbsfy/runtime":20}],33:[function(require,module,exports){
@@ -2150,12 +2158,38 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
   return "<div class=\"container\" style=\"display: block;\">\n    <h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>AGB und Widerrufsbelehrung</h3>\n\n        <div class=\"checkbox col-md-12\">\n            <label>\n                <input type=\"checkbox\"> Ich akzeptiere die <a href=\"#\">allgemeinen Geschäftsbedingungen</a> und die\n                Bestimmungen zum <a href=\"#\">Datenschutz</a>. Die Informationen zum <a href=\"#\">Widerrufsrecht</a>\n                wurden mir zur Verfügung gestellt.\n            </label>\n        </div>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Rechnungsadresse</h3>\n\n        <p>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:firma",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:anrede",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:vorname",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:nachname",{"name":"getFormValue","hash":{},"data":data}))
-    + "<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Lieferadresse</h3>\n\n        <p>\n            Herr Max Mustermann<br/>\n            Musterstrasse 123<br/>\n            12345 Musterstadt<br/>\n            Deutschland\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Zahlung und Versand</h3>\n\n        <p>\n            <b>Zahlungsart:</b> PayPal<br/>\n            <b>Versandart:</b> DHL\n        </p>\n    </div>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>Warenkorb</h3>\n        <table class=\"table table-striped table-hover table-responsive cart-table\">\n            <thead>\n            <tr>\n                <th class=\"cart-th-article\">Artikel</th>\n                <th class=\"cart-th-quantity\">Anzahl</th>\n                <th class=\"cart-th-unitprice\">Stückpreis</th>\n                <th class=\"cart-th-sum\">Summe</th>\n            </tr>\n            </thead>\n            <tbody>\n"
+    + "<br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:strasse",{"name":"getFormValue","hash":{},"data":data}))
+    + " <br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:plz",{"name":"getFormValue","hash":{},"data":data}))
+    + " "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:ort",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:land",{"name":"getFormValue","hash":{},"data":data}))
+    + "\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Lieferadresse</h3>\n\n        <p>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:firma",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:anrede",{"name":"getFormValue","hash":{},"data":data}))
+    + " "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:vorname",{"name":"getFormValue","hash":{},"data":data}))
+    + " "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:nachname",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:strasse",{"name":"getFormValue","hash":{},"data":data}))
+    + " <br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:plz",{"name":"getFormValue","hash":{},"data":data}))
+    + " "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:ort",{"name":"getFormValue","hash":{},"data":data}))
+    + "<br/>\n            "
+    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:land",{"name":"getFormValue","hash":{},"data":data}))
+    + "\n        </p>\n    </div>\n\n    <div class=\"col-md-4 cart-box\">\n        <h3>Zahlung und Versand</h3>\n\n        <p>\n            <b>Zahlungsart:</b> PayPal<br/>\n            <b>Versandart:</b> DHL\n        </p>\n    </div>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>Warenkorb</h3>\n        <table class=\"table table-striped table-hover table-responsive cart-table\">\n            <thead>\n            <tr>\n                <th class=\"cart-th-article\">Artikel</th>\n                <th class=\"cart-th-quantity\">Anzahl</th>\n                <th class=\"cart-th-unitprice\">Stückpreis</th>\n                <th class=\"cart-th-sum\">Summe</th>\n            </tr>\n            </thead>\n            <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "            </tbody>\n            <tfoot>\n            <tr>\n                <td></td>\n                <td></td>\n                <td>Warenwert:</td>\n                <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
