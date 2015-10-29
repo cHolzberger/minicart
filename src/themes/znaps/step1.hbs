@@ -61,7 +61,7 @@
                                         data-minicart-idx="{{@index}}" data-minicart-role="minicart-remove">X
                                 </button>
 
-                                <input data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
+                                <input class="form-control input-sm pull-right" data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
                                        name="quantity_{{addOne @index}}" type="text"
                                        pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
                             </td>
@@ -118,6 +118,6 @@
 
         </div>
 
-        <button type="button" class="btn btn-default pull-left">weiter einkaufen</button>
-        <button type="button" class="btn btn-success pull-right"  data-minicart-role="change-state" data-minicart-target-state="step2">Schritt 2: Ihre Adresse</button>
+        <button type="button" class="btn btn-default pull-left col-md-5 hidden-xs">weiter einkaufen</button>
+        <button type="button" class="btn btn-success pull-right col-md-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">Schritt 2: Ihre Adresse</button>
 {{/with}}

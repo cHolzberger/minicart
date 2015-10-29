@@ -12,12 +12,6 @@
         <div class="cart-box cart-form-contactInfo">
             <h3 class="col-md-12">Ihre Kontaktdaten</h3>
 
-            {{> ./input.hbs name="kontakt:firma" label="Firma" required=true }}
-
-            {{> ./anrede.hbs name="kontakt:anrede" label="Anrede" required=true }}
-
-            {{> ./input.hbs name="kontakt:vorname" label="Vorname" required=true }}
-            {{> ./input.hbs name="kontakt:nachname" label="Nachname" required=true }}
             {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse" required=true }}
             {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse wiederholen" required=true }}
             <div class="clearfix"></div>
@@ -82,7 +76,7 @@
 
     </form>
 
-    <button type="button" class="btn btn-default pull-left"  data-minicart-role="change-state" data-minicart-target-state="default">zurück zu Schritt 1</button>
-    <button type="button" class="btn btn-success pull-right"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3: Prüfen und Bestellen</button>
+    <button type="button" class="btn btn-default pull-left col-md-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="default">zurück zu Schritt 1</button>
+    <button type="button" class="btn btn-success pull-right col-md-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3: Prüfen und Bestellen</button>
 </div>
 
