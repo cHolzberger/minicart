@@ -45,8 +45,6 @@
                     <thead>
                     <tr>
                         <th class="cart-th-article">Artikel</th>
-                        <th class="cart-th-opts">Optionen</th>
-
                         <th class="cart-th-quantity">Anzahl</th>
                         <th class="cart-th-unitprice">Stückpreis</th>
                         <th class="cart-th-sum">Summe</th>
@@ -57,34 +55,6 @@
                         <tr data-minicart-role="minicart-item">
                             <td class="cart-td-article ">
                                 <a data-minicart-role="minicart-name" href="{{get "href"}}">{{get "item_name"}}</a>
-                            </td>
-                            <td class="card-td-opts">
-                                <ul data-minicart-role="minicart-attributes">
-                                    {{#if (get "item_number")}}
-                                        <li>
-                                            {{get "item_number"}}
-                                            <input type="hidden" name="item_number_{{addOne @index}}"
-                                                   value="{{get "item_number"}}"/>
-                                        </li>
-                                    {{/if}}
-                                    {{#if (discount)}}
-                                        <li>
-                                            {{@root/config.strings.discount}} {{discount @root/priceFormat}}
-                                            <input type="hidden" name="discount_amount_{{addOne @index}}"
-                                                   value="{{discount}}"/>
-                                        </li>
-                                    {{/if}}
-                                    {{#each options}}
-                                    {{!<% for (var options = items[i].options(), j = 0, len2 = options.length; j < len2; j++) { %>}}
-                                        <li>
-                                            {{key}}: {{value}}
-                                            <input type="hidden" name="on{{@index}}_{{addOne @../index}}"
-                                                   value="{{key}}"/>
-                                            <input type="hidden" name="os{{@index}}_{{addOne @../index}}"
-                                                   value="{{value}}"/>
-                                        </li>
-                                    {{/each}}
-                                </ul>
                             </td>
                             <td class="cart-td-quantity minicart-details-quantity">
                                 <button type="button" class="btn btn-default btn-cart-delete pull-right"
