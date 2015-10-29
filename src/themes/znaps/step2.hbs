@@ -14,14 +14,7 @@
 
             {{> ./input.hbs name="kontakt:firma" label="Firma" required=true }}
 
-            <div class="form-group col-md-6">
-                <label for="Firma">Anrede*</label>
-                <select class="form-control" required="required">
-                    <option disabled selected>bitte wählen</option>
-                    <option>Herr</option>
-                    <option>Frau</option>
-                </select>
-            </div>
+            {{> ./anrede.hbs name="kontakt:anrede" label="Anrede" required=true }}
 
             {{> ./input.hbs name="kontakt:vorname" label="Vorname" required=true }}
             {{> ./input.hbs name="kontakt:nachname" label="Nachname" required=true }}
@@ -33,19 +26,18 @@
 
         <div class="cart-box cart-form-billingAddress">
             <h3 class="col-md-12">Ihre Adresse</h3>
+            {{> ./input.hbs name="billing:firma" label="Firma" required=true }}
+
             {{> ./input.hbs name="billing:vorname" label="Vorname" required=true }}
             {{> ./input.hbs name="billing:nachname" label="Nachname" required=true }}
+
+            {{> ./anrede.hbs name="billing:anrede" label="Anrede" required=true }}
 
             {{> ./input.hbs name="billing:strasse" label="Straße und Nr." required=true size=12}}
             {{> ./input.hbs name="billing:plz" label="PLZ" required=true size=4}}
             {{> ./input.hbs name="billing:ort" label="Ort" required=true size=8}}
 
-            <div class="form-group col-md-12">
-                <label for="Firma">Land*</label>
-                <select class="form-control" required="required">
-                    <option>Deutschland</option>
-                </select>
-            </div>
+            {{> ./land.hbs name="billing:land" label="Land" required=true }}
 
             <div class="checkbox col-md-12">
                 <label>
@@ -59,16 +51,17 @@
 
         <div class="cart-box cart-form-deliveryAddress">
             <h3 class="col-md-12">Lieferadresse</h3>
+            {{> ./input.hbs name="shipping:firma" label="Firma" required=true }}
 
-            {{> ./input.hbs name="billing:strasse" label="Straße und Nr." required=true size=12}}
-            {{> ./input.hbs name="billing:plz" label="PLZ" required=true size=4}}
-            {{> ./input.hbs name="billing:ort" label="Ort" required=true size=8}}
-            <div class="form-group col-md-12">
-                <label for="Firma">Land*</label>
-                <select class="form-control" required="required">
-                    <option>Deutschland</option>
-                </select>
-            </div>
+            {{> ./input.hbs name="shipping:vorname" label="Vorname" required=true }}
+            {{> ./input.hbs name="shipping:nachname" label="Nachname" required=true }}
+
+            {{> ./anrede.hbs name="shipping:anrede" label="Anrede" required=true }}
+            {{> ./input.hbs name="shipping:strasse" label="Straße und Nr." required=true size=12}}
+            {{> ./input.hbs name="shipping:plz" label="PLZ" required=true size=4}}
+            {{> ./input.hbs name="shipping:ort" label="Ort" required=true size=8}}
+            {{> ./land.hbs name="shipping:land" label="Land" required=true }}
+
 
             <div class="clearfix"></div>
         </div>

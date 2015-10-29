@@ -1,0 +1,6 @@
+<div class="form-group col-md-{{#if size}}{{size}}{{else}}6{{/if}}">
+    <label for="{{name}}">{{label}}{{#if required}}*{{/if}}</label>
+    <select id="{{name}}" name="{{name}}" class="form-control" {{#if required}}required="required"{{/if}} data-minicart-role="persist" value="{{getPersistValue name}}">
+        <option>Deutschland</option>
+    </select>
+</div>

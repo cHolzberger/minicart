@@ -18,10 +18,11 @@
         <h3>Rechnungsadresse</h3>
 
         <p>
-            Herr {{getFormValue "billing:vorname"}} {{getFormValue "billing:nachname"}}<br/>
-            Musterstrasse 123<br/>
-            12345 Musterstadt<br/>
-            Deutschland
+            {{getFormValue "billing:firma"}}<br/>
+            {{getFormValue "billing:anrede"}} {{getFormValue "billing:vorname"}} {{getFormValue "billing:nachname"}}<br/>
+            {{getFormValue "billing:strasse"}} <br/>
+            {{getFormValue "billing:plz"}} {{getFormValue "billing:ort"}}<br/>
+            {{getFormValue "billing:land"}}
         </p>
     </div>
 
@@ -29,10 +30,11 @@
         <h3>Lieferadresse</h3>
 
         <p>
-            Herr Max Mustermann<br/>
-            Musterstrasse 123<br/>
-            12345 Musterstadt<br/>
-            Deutschland
+            {{getFormValue "shipping:firma"}}<br/>
+            {{getFormValue "shipping:anrede"}} {{getFormValue "shipping:vorname"}} {{getFormValue "shipping:nachname"}}<br/>
+            {{getFormValue "shipping:strasse"}} <br/>
+            {{getFormValue "shipping:plz"}} {{getFormValue "shipping:ort"}}<br/>
+            {{getFormValue "shipping:land"}}
         </p>
     </div>
 
