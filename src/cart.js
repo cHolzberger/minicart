@@ -18,7 +18,7 @@ var Product = require('./product'),
  * @param {duration} number Time in milliseconds that the cart data should persist
  */
 function Cart(name, duration, cfg) {
-    var data, items, settings, len, i;
+    var data, items, settings, len, i, form;
 
     this._items = [];
     this.config = cfg ? cfg : {shipping_global:0};
@@ -30,6 +30,11 @@ function Cart(name, duration, cfg) {
     if ((data = this.load())) {
         items = data.items;
         settings = data.settings;
+        form = data.form;
+
+        if ( form ) {
+            this.form = form;
+        }
 
         if (settings) {
             this._settings = settings;
@@ -243,6 +248,13 @@ Cart.prototype.remove = function remove(idx) {
  * Saves the cart data.
  */
 Cart.prototype.save = function save() {
+    Storage.prototype.save.call(this, this.cartData());
+};
+
+/**
+ * Saves the cart data.
+ */
+Cart.prototype.cartData = function cartData() {
     var items = this.items(),
         settings = this.settings(),
         data = [],
@@ -252,10 +264,12 @@ Cart.prototype.save = function save() {
         data.push(items[i].get());
     }
 
-    Storage.prototype.save.call(this, {
+    var ret= {
         items: data,
-        settings: settings
-    });
+        settings: settings,
+        form: this.form
+    };
+    return ret;
 };
 
 
@@ -266,7 +280,9 @@ Cart.prototype.save = function save() {
  * @param {object} The initiating event
  */
 Cart.prototype.checkout = function checkout(evt) {
+    console.dir(this.cartData());
     this.fire('checkout', evt);
+    evt.preventDefault();
 };
 
 
@@ -278,7 +294,7 @@ Cart.prototype.destroy = function destroy() {
 
     this._items = [];
     this._settings = { bn: constants.BN };
-
+    this.form = {};
     this.fire('destroy');
 };
 

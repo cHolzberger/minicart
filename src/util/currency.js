@@ -23,7 +23,7 @@ var currencies = {
     DKK: { before: 'kr' },
     DOP: { before: '$', code: true },
     EEK: { before: 'kr' },
-    EUR: { before: '\u20AC' },
+    EUR: { after: '\u20AC' },
     GBP: { before: '\u00A3' },
     GTQ: { before: 'Q' },
     HKD: { before: '$', code: true },
@@ -82,6 +82,6 @@ module.exports = function currency(amount, config) {
     if (showCode) {
         result += ' ' + code;
     }
-
+    // fixme: , statt .
     return result;
 };
