@@ -47,6 +47,7 @@ View.prototype.redraw = function redraw() {
     events.remove(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     if ( this.el.innerHTML === '') {
         this.el.innerHTML = template(config.template, this.model);
+        events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     }
     for ( var state_name in config.template_states) {
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
@@ -59,7 +60,6 @@ View.prototype.redraw = function redraw() {
 
         }
     }
-    events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
 };
 
 /**
