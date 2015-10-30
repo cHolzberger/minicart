@@ -52,7 +52,7 @@ View.prototype.redraw = function redraw() {
     for ( var state_name in config.template_states) {
 
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
-        var state_indicator = document.querySelectorAll('[data-minicart-role=\'data-minicart-indicator\']')[0];
+        var state_indicator = document.querySelectorAll('[data-minicart-indicator=\'' +state_name+ '\']')[0];
 
         state_container.innerHTML = template(config.template_states[state_name],this.model);
 
