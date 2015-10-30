@@ -1860,7 +1860,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
 
   return "<ul class=\"nav nav-pills nav-justified cart-nav\">\n    "
     + container.escapeExpression(((helper = (helper = helpers.test || (depth0 != null ? depth0.test : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"test","hash":{},"data":data}) : helper)))
-    + "\n    <li role=\"presentation\" class=\"active\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n        <a href=\"#\" data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
+    + "\n    <li role=\"presentation\" class=\"active\" data-minicart-indicator=\"default\">\n        <a href=\"#\" >\n            <b>Schritt 1</b><br/>\n            Warenkorb\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-indicator=\"step2\">\n        <a href=\"#\" >\n            <b>Schritt 2</b><br/>\n            Ihre Adresse\n        </a>\n    </li>\n    <li role=\"presentation\" class=\"disabled\" data-minicart-indicator=\"step3\">\n        <a href=\"#\" >\n            <b>Schritt 3</b><br/>\n            Prüfen und Bestellen\n        </a>\n    </li>\n</ul>\n";
 },"useData":true});
 
 },{"hbsfy/runtime":20}],28:[function(require,module,exports){
@@ -1974,7 +1974,7 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
+  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -1996,7 +1996,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_name",{"name":"get","hash":{},"data":data}))
     + "</a>\n                            </td>\n                            <td class=\"cart-td-quantity minicart-details-quantity\">\n                                <button type=\"button\" class=\"btn btn-default btn-cart-delete pull-right\"\n                                        data-minicart-idx=\""
     + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias4 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\" data-minicart-role=\"minicart-remove\">X\n                                </button>\n\n                                <input class=\"form-control input-sm pull-right\" data-minicart-role=\"minicart-quantity\" data-minicart-idx=\""
+    + "\" data-minicart-role=\"minicart-remove\">X\n                                </button>\n\n                                <input disabled class=\"form-control input-sm pull-right\" data-minicart-role=\"minicart-quantity\" data-minicart-idx=\""
     + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias2),(typeof helper === alias4 ? helper.call(alias1,{"name":"index","hash":{},"data":data}) : helper)))
     + "\"\n                                       name=\"quantity_"
     + alias3((helpers.addOne || (depth0 && depth0.addOne) || alias2).call(alias1,(data && data.index),{"name":"addOne","hash":{},"data":data}))
@@ -2074,8 +2074,10 @@ var partial$16 = require('./input.hbs');
 HandlebarsCompiler.registerPartial('./input.hbs', partial$16);
 var partial$17 = require('./land.hbs');
 HandlebarsCompiler.registerPartial('./land.hbs', partial$17);
-module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-    var stack1;
+module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
+    return "checked=\"checked\"";
+},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
 
   return "\n\n    <h2 class=\"text-center\">Ihre Adresse</h2>\n\n    <div class=\"col-md-12 alert alert-warning text-center\" role=\"alert\">\n        Füllen Sie bitte alle Pflichfelder aus.\n    </div>\n\n\n    <form class=\"row\">\n\n        <div class=\"cart-box cart-form-contactInfo\">\n            <h3 class=\"col-md-12\">Ihre Kontaktdaten</h3>\n\n"
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"E-Mail Adresse","name":"kontakt:email"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
@@ -2093,7 +2095,7 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"billing:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["./land.hbs"],depth0,{"name":"./land.hbs","hash":{"required":true,"label":"Land","name":"billing:land"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n"
+    + "            <!--\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\"> Die <b>Lieferadresse</b> weicht von der Rechnungsadresse ab.\n                </label>\n            </div>\n-->\n            <div class=\"clearfix\"></div>\n        </div>\n\n<!--\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Lieferadresse</h3>\n"
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Firma","name":"shipping:firma"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"required":true,"label":"Vorname","name":"shipping:vorname"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
@@ -2104,7 +2106,9 @@ module.exports = HandlebarsCompiler.template({"compiler":[7,">= 4.0.0"],"main":f
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":4,"required":true,"label":"PLZ","name":"shipping:plz"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./input.hbs"],depth0,{"name":"./input.hbs","hash":{"size":8,"required":true,"label":"Ort","name":"shipping:ort"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ((stack1 = container.invokePartial(partials["./land.hbs"],depth0,{"name":"./land.hbs","hash":{"required":true,"label":"Land","name":"shipping:land"},"data":data,"indent":"            ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\" name=\"newsletter\"> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
+    + "\n\n            <div class=\"clearfix\"></div>\n        </div>\n-->\n\n        <div class=\"cart-box cart-form-deliveryAddress\">\n            <h3 class=\"col-md-12\">Newsletter</h3>\n\n            <div class=\"checkbox col-md-12\">\n                <label>\n                    <input type=\"checkbox\" name=\"newsletter\" data-minicart-role=\"persist\" value=\"checked\" "
+    + ((stack1 = helpers["if"].call(alias1,(helpers.getPersistValue || (depth0 && depth0.getPersistValue) || helpers.helperMissing).call(alias1,"newsletter",{"name":"getPersistValue","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "> Ich möchte über aktuelle Angebote, Sonderaktionen und Neuigkeiten per\n                    E-Mail informiert werden. Selbstverständlich können Sie den Newsletter jederzeit und umgehend\n                    wieder abbestellen.\n                </label>\n            </div>\n            <div class=\"clearfix\"></div>\n        </div>\n\n    </form>\n\n    <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"default\">zurück zu Schritt 1</button>\n    <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step3\">Schritt 3: Prüfen und Bestellen</button>\n</div>\n\n";
 },"usePartial":true,"useData":true});
 
 },{"./anrede.hbs":26,"./input.hbs":29,"./land.hbs":30,"hbsfy/runtime":20}],33:[function(require,module,exports){
@@ -2113,7 +2117,9 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n<h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>AGB und Widerrufsbelehrung</h3>\n\n    <div class=\"checkbox col-md-12\">\n        <label>\n            <input type=\"checkbox\"> Ich akzeptiere die <a href=\"#\">allgemeinen Geschäftsbedingungen</a> und die\n            Bestimmungen zum <a href=\"#\">Datenschutz</a>. Die Informationen zum <a href=\"#\">Widerrufsrecht</a>\n            wurden mir zur Verfügung gestellt.\n        </label>\n    </div>\n</div>\n\n<div class=\"col-md-4 cart-box\">\n    <h3>Rechnungsadresse</h3>\n\n    <p>\n        "
+  return "\n<h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>AGB und Widerrufsbelehrung</h3>\n\n    <div class=\"checkbox col-md-12\">\n        <label>\n            <input type=\"checkbox\" data-minicart-role=\"persist\" name=\"agb\" id=\"agb\" value=\"checked\" "
+    + ((stack1 = helpers["if"].call(alias1,(helpers.getPersistValue || (depth0 && depth0.getPersistValue) || alias2).call(alias1,"agb",{"name":"getPersistValue","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "> Ich akzeptiere die <a href=\"/agb\" target=\"_blank\">allgemeinen Geschäftsbedingungen</a> und die\n            Bestimmungen zum <a href=\"/datenschutzerklaerung\" target=\"_blank\">Datenschutz</a>. Die Informationen zum <a href=\"/agb\" target=\"_blank\">Widerrufsrecht</a>\n            wurden mir zur Verfügung gestellt.\n        </label>\n    </div>\n</div>\n\n\n<div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n    <h3>Rechnungsadresse</h3>\n\n    <p>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:firma",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:anrede",{"name":"getFormValue","hash":{},"data":data}))
@@ -2129,7 +2135,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:ort",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:land",{"name":"getFormValue","hash":{},"data":data}))
-    + "\n    </p>\n</div>\n\n<div class=\"col-md-4 cart-box\">\n    <h3>Lieferadresse</h3>\n\n    <p>\n        "
+    + "\n    </p>\n</div>\n<!--\n<div class=\"col-md-4 cart-box\">\n    <h3>Lieferadresse</h3>\n\n    <p>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:firma",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:anrede",{"name":"getFormValue","hash":{},"data":data}))
@@ -2145,10 +2151,10 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:ort",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:land",{"name":"getFormValue","hash":{},"data":data}))
-    + "\n    </p>\n</div>\n\n<div class=\"col-md-4 cart-box\">\n    <h3>Zahlung und Versand</h3>\n\n    <p>\n        <b>Zahlungsart:</b> PayPal<br/>\n        <b>Versandart:</b> DHL\n    </p>\n</div>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>Warenkorb</h3>\n    <table class=\"table table-striped table-hover table-responsive cart-table\">\n        <thead>\n        <tr>\n            <th class=\"cart-th-article\">Artikel</th>\n            <th class=\"cart-th-quantity\">Anzahl</th>\n            <th class=\"cart-th-unitprice\">Stückpreis</th>\n            <th class=\"cart-th-sum\">Summe</th>\n        </tr>\n        </thead>\n        <tbody>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n    </p>\n</div>\n-->\n<div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n    <h3>Zahlung und Versand</h3>\n\n    <p>\n        <b>Zahlungsart:</b> PayPal<br/>\n        <b>Versandart:</b> DHL<br/>\n        <b>Liefertermin:</b> voraussichtlich Dezember 2015\n    </p>\n</div>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>Warenkorb</h3>\n    <table class=\"table table-striped table-hover table-responsive cart-table\">\n        <thead>\n        <tr>\n            <th class=\"cart-th-article\">Artikel</th>\n            <th class=\"cart-th-quantity\">Anzahl</th>\n            <th class=\"cart-th-unitprice\">Stückpreis</th>\n            <th class=\"cart-th-sum\">Summe</th>\n        </tr>\n        </thead>\n        <tbody>\n"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "        </tbody>\n        <tfoot>\n        <tr>\n            <td></td>\n            <td></td>\n            <td>Warenwert:</td>\n            <td>\n"
-    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "            </td>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td>zzgl. Versandkosten:</td>\n            <td><span>\n                "
     + alias3((helpers.shipping_global || (depth0 && depth0.shipping_global) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
     + "\n            </span>*</td>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td class=\"font-bold\">Gesamtpreis:</td>\n            <td class=\"font-bold\"><span>"
@@ -2157,10 +2163,12 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n            <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n        </tr>\n        </tfoot>\n    </table>\n</div>\n\n<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
-    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "*</td>\n        </tr>\n        </tfoot>\n    </table>\n</div>\n\n<div class=\"col-md-12\">\n    <h3>Zustandekommen des Auftrags</h3>\n\n    <p>\n        Es handelt sich hierbei um einen unverbindlichen Vorverkauf. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.\n    </p>\n</div>\n\n<div class=\"col-md-12\">\n    <h3>Bestellablauf</h3>\n\n    <p>\n        Wenige Tage nach Abschluss Ihrer unverbindlichen Vorbestellung, erhalten Sie in eine E-Mail als bestätigung, dass Ihre Vorbestellung bei uns eingegangen ist.\n        Sobald wir die Ware lagernd haben, erhalten Sie erneut eine E-Mail von uns. Die E-Mail wird einen Link beinhalten, welcher zu unserem Shop führt.\n        Dort angekommen, können Sie Ihre unverbindliche Vorbestellung mit nur einem Klick zu einer verbindlichen Bestellung umwandeln. Im Anschluss kann über PayPal bezahlt werden. Nach Zahlungseingang wird die Ware versendet.\n    </p>\n</div>\n\n<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n";
 },"2":function(container,depth0,helpers,partials,data) {
+    return "checked=\"checked\"";
+},"4":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
   return "        <tr>\n            <td class=\"cart-td-article\">"
@@ -2172,13 +2180,13 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "*</td>\n            <td class=\"cart-td-sum\">"
     + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"total","hash":{},"data":data}))
     + "*</td>\n        </tr>\n";
-},"4":function(container,depth0,helpers,partials,data) {
+},"6":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "                    <span >\n                        "
     + container.escapeExpression((helpers.subtotal || (depth0 && depth0.subtotal) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"subtotal","hash":{},"data":data}))
     + "\n                    </span>\n";
-},"6":function(container,depth0,helpers,partials,data) {
+},"8":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda;
 
   return "            <button type=\"submit\" data-minicart-role=\"minicart-submit\" data-minicart-alt=\""
@@ -2732,14 +2740,18 @@ View.prototype.redraw = function redraw() {
         events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     }
     for ( var state_name in config.template_states) {
+
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
+        var state_indicator = document.querySelectorAll('[data-minicart-indicator=\'' +state_name+ '\']')[0];
+
         state_container.innerHTML = template(config.template_states[state_name],this.model);
 
         if ( state_name === this.state) {
             state_container.style.display='block';
+            state_indicator.setAttribute("class", "active");
         } else {
             state_container.style.display='none';
-
+            state_indicator.setAttribute("class", "disabled");
         }
     }
 };
@@ -2749,7 +2761,6 @@ View.prototype.redraw = function redraw() {
  */
 
 View.prototype.changeState = function changeState (state) {
-    console.log(state);
     this.state=state;
     this.redraw();
 };
@@ -2892,6 +2903,14 @@ module.exports = viewevents = {
             // Product quantity input
             } else if (minicartRole === constants.QUANTITY_CLASS) {
                 target[target.setSelectionRange ? 'setSelectionRange' : 'select'](0, 999);
+            } else if (minicartRole === constants.INPUT_PERSIST) {
+                    //fixme see keyup - dupl code
+
+                    if ( target.getAttribute("type") ==="checkbox") {
+                        this.model.cart.form[target.getAttribute('name')] =  target.checked? target.value:"";
+                    } else {
+                        this.model.cart.form[target.getAttribute('name')] = target.value;
+                    }
             // Outside the cart
             } else if (!(/input|button|select|option/i.test(target.tagName))) {
                 while (target.nodeType === 1) {
@@ -2929,7 +2948,11 @@ module.exports = viewevents = {
                 }
             }, constants.KEYUP_TIMEOUT);
         } else if (minicartRole === constants.INPUT_PERSIST) {
-            this.model.cart.form[target.getAttribute('name')] = target.value;
+            if ( target.getAttribute("type") ==="checkbox") {
+                this.model.cart.form[target.getAttribute('name')] =  target.checked? target.value:"";
+            } else {
+                this.model.cart.form[target.getAttribute('name')] = target.value;
+            }
         }
     },
 

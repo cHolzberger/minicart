@@ -31,7 +31,7 @@
                     <label>
                         <input type="radio" name="Versandart" id="Versandart" value="Versandart" checked>
                         <b>DHL</b><br/>
-                        Versicherter Versand. Lieferung innerhalb von 1-2 Werktagen.
+                        Versicherter Versand.
                     </label>
                     </label>
                 </div>
@@ -61,7 +61,7 @@
                                         data-minicart-idx="{{@index}}" data-minicart-role="minicart-remove">X
                                 </button>
 
-                                <input class="form-control input-sm pull-right" data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
+                                <input disabled class="form-control input-sm pull-right" data-minicart-role="minicart-quantity" data-minicart-idx="{{@index}}"
                                        name="quantity_{{addOne @index}}" type="text"
                                        pattern="[0-9]*" value="{{get "quantity"}}" autocomplete="off"/>
                             </td>
