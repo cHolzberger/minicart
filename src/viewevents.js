@@ -61,7 +61,11 @@ module.exports = viewevents = {
                 }
             }, constants.KEYUP_TIMEOUT);
         } else if (minicartRole === constants.INPUT_PERSIST) {
-            this.model.cart.form[target.getAttribute('name')] = target.value;
+            if ( target.getAttribute("type") ==="checkbox") {
+                this.model.cart.form[target.getAttribute('name')] =  target.checked? target.value:"";
+            } else {
+                this.model.cart.form[target.getAttribute('name')] = target.value;
+            }
         }
     },
 

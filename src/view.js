@@ -67,7 +67,6 @@ View.prototype.redraw = function redraw() {
  */
 
 View.prototype.changeState = function changeState (state) {
-    console.log(state);
     this.state=state;
     this.redraw();
 };
