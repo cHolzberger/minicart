@@ -24,7 +24,7 @@ module.exports = viewevents = {
             // Product quantity input
             } else if (minicartRole === constants.QUANTITY_CLASS) {
                 target[target.setSelectionRange ? 'setSelectionRange' : 'select'](0, 999);
-            else if (minicartRole === constants.INPUT_PERSIST) {
+            } else if (minicartRole === constants.INPUT_PERSIST) {
                     //fixme see keyup - dupl code
 
                     if ( target.getAttribute("type") ==="checkbox") {
