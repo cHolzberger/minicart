@@ -1891,7 +1891,7 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.action : stack1), depth0))
     + "\" target=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.config : depth0)) != null ? stack1.target : stack1), depth0))
-    + "\">\n"
+    + "\" novalidate>\n"
     + ((stack1 = container.invokePartial(partials["./head.hbs"],depth0,{"name":"./head.hbs","data":data,"indent":"    ","helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + "    <div class=\"cart-step\" data-minicart-role=\"state:default\">\n        <!-- ./step1.hbs -->\n    </div>\n    <div class=\"cart-step\" data-minicart-role=\"state:step2\">\n        <!-- ./step2.hbs-->\n    </div>\n    <div class=\"cart-step\" data-minicart-role=\"state:step3\">\n        <!-- ./step3.hbs-->\n    </div>\n"
     + ((stack1 = helpers["with"].call(alias1,(depth0 != null ? depth0.cart : depth0),{"name":"with","hash":{},"fn":container.program(1, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -1974,7 +1974,7 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Der Verkauf unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
+  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Die Vorbestellung unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -2117,25 +2117,25 @@ var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n<h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>AGB und Widerrufsbelehrung</h3>\n\n    <div class=\"checkbox col-md-12\">\n        <label>\n            <input type=\"checkbox\" data-minicart-role=\"persist\" name=\"agb\" id=\"agb\" value=\"checked\" "
+  return "\n    <h2 class=\"text-center\">Prüfen und Bestellen</h2>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>AGB und Widerrufsbelehrung</h3>\n\n        <div class=\"checkbox col-md-12\">\n            <label>\n                <input type=\"checkbox\" data-minicart-role=\"persist\" name=\"agb\" id=\"agb\" value=\"checked\" "
     + ((stack1 = helpers["if"].call(alias1,(helpers.getPersistValue || (depth0 && depth0.getPersistValue) || alias2).call(alias1,"agb",{"name":"getPersistValue","hash":{},"data":data}),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "> Ich akzeptiere die <a href=\"/agb\" target=\"_blank\">allgemeinen Geschäftsbedingungen</a> und die\n            Bestimmungen zum <a href=\"/datenschutzerklaerung\" target=\"_blank\">Datenschutz</a>. Die Informationen zum <a href=\"/agb\" target=\"_blank\">Widerrufsrecht</a>\n            wurden mir zur Verfügung gestellt.\n        </label>\n    </div>\n</div>\n\n\n<div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n    <h3>Rechnungsadresse</h3>\n\n    <p>\n        "
+    + "> Ich akzeptiere die <a href=\"/agb\" target=\"_blank\">allgemeinen Geschäftsbedingungen</a> und die\n                Bestimmungen zum <a href=\"/datenschutzerklaerung\" target=\"_blank\">Datenschutz</a>. Die Informationen zum <a href=\"/widerruf\" target=\"_blank\">Widerrufsrecht</a>\n                wurden mir zur Verfügung gestellt.\n            </label>\n        </div>\n    </div>\n\n\n    <div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n        <h3>Rechnungsadresse</h3>\n\n        <p>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:firma",{"name":"getFormValue","hash":{},"data":data}))
-    + "<br/>\n        "
+    + "<br/>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:anrede",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:vorname",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:nachname",{"name":"getFormValue","hash":{},"data":data}))
-    + "<br/>\n        "
+    + "<br/>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:strasse",{"name":"getFormValue","hash":{},"data":data}))
-    + " <br/>\n        "
+    + " <br/>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:plz",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:ort",{"name":"getFormValue","hash":{},"data":data}))
-    + "<br/>\n        "
+    + "<br/>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:land",{"name":"getFormValue","hash":{},"data":data}))
-    + "\n    </p>\n</div>\n<!--\n<div class=\"col-md-4 cart-box\">\n    <h3>Lieferadresse</h3>\n\n    <p>\n        "
+    + "\n        </p>\n    </div>\n    <!--\n<div class=\"col-md-4 cart-box\">\n    <h3>Lieferadresse</h3>\n\n    <p>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:firma",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:anrede",{"name":"getFormValue","hash":{},"data":data}))
@@ -2151,19 +2151,19 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:ort",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n        "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"shipping:land",{"name":"getFormValue","hash":{},"data":data}))
-    + "\n    </p>\n</div>\n-->\n<div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n    <h3>Zahlung und Versand</h3>\n\n    <p>\n        <b>Zahlungsart:</b> PayPal<br/>\n        <b>Versandart:</b> DHL<br/>\n        <b>Liefertermin:</b> voraussichtlich Dezember 2015\n    </p>\n</div>\n\n<div class=\"col-md-12 cart-box\">\n    <h3>Warenkorb</h3>\n    <table class=\"table table-striped table-hover table-responsive cart-table\">\n        <thead>\n        <tr>\n            <th class=\"cart-th-article\">Artikel</th>\n            <th class=\"cart-th-quantity\">Anzahl</th>\n            <th class=\"cart-th-unitprice\">Stückpreis</th>\n            <th class=\"cart-th-sum\">Summe</th>\n        </tr>\n        </thead>\n        <tbody>\n"
+    + "\n    </p>\n</div>\n-->\n    <div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n        <h3>Zahlung und Versand</h3>\n\n        <p>\n            <b>Zahlungsart:</b> PayPal<br/>\n            <b>Versandart:</b> DHL<br/>\n            <b>Liefertermin:</b> voraussichtlich Dezember 2015\n        </p>\n    </div>\n\n    <div class=\"col-md-12 cart-box\">\n        <h3>Warenkorb</h3>\n        <table class=\"table table-striped table-hover table-responsive cart-table\">\n            <thead>\n            <tr>\n                <th class=\"cart-th-article\">Artikel</th>\n                <th class=\"cart-th-quantity\">Anzahl</th>\n                <th class=\"cart-th-unitprice\">Stückpreis</th>\n                <th class=\"cart-th-sum\">Summe</th>\n            </tr>\n            </thead>\n            <tbody>\n"
     + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "        </tbody>\n        <tfoot>\n        <tr>\n            <td></td>\n            <td></td>\n            <td>Warenwert:</td>\n            <td>\n"
+    + "            </tbody>\n            <tfoot>\n            <tr>\n                <td></td>\n                <td></td>\n                <td>Warenwert:</td>\n                <td>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "            </td>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td>zzgl. Versandkosten:</td>\n            <td><span>\n                "
+    + "                </td>\n            </tr>\n            <tr>\n                <td></td>\n                <td></td>\n                <td>zzgl. Versandkosten:</td>\n                <td><span>\n                    "
     + alias3((helpers.shipping_global || (depth0 && depth0.shipping_global) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
-    + "\n            </span>*</td>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td class=\"font-bold\">Gesamtpreis:</td>\n            <td class=\"font-bold\"><span>"
+    + "\n                </span>*</td>\n            </tr>\n            <tr>\n                <td></td>\n                <td></td>\n                <td class=\"font-bold\">Gesamtpreis:</td>\n                <td class=\"font-bold\"><span>"
     + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.totalFormat),{"name":"total","hash":{},"data":data}))
-    + "</span>*</td>\n        </tr>\n        <tr>\n            <td></td>\n            <td></td>\n            <td>inkl. "
+    + "</span>*</td>\n            </tr>\n            <tr>\n                <td></td>\n                <td></td>\n                <td>inkl. "
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
-    + "% MwSt.:</td>\n            <td>"
+    + "% MwSt.:</td>\n                <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n        </tr>\n        </tfoot>\n    </table>\n</div>\n\n<div class=\"col-md-12\">\n    <h3>Zustandekommen des Auftrags</h3>\n\n    <p>\n        Es handelt sich hierbei um einen unverbindlichen Vorverkauf. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.\n    </p>\n</div>\n\n<div class=\"col-md-12\">\n    <h3>Bestellablauf</h3>\n\n    <p>\n        Wenige Tage nach Abschluss Ihrer unverbindlichen Vorbestellung, erhalten Sie in eine E-Mail als bestätigung, dass Ihre Vorbestellung bei uns eingegangen ist.\n        Sobald wir die Ware lagernd haben, erhalten Sie erneut eine E-Mail von uns. Die E-Mail wird einen Link beinhalten, welcher zu unserem Shop führt.\n        Dort angekommen, können Sie Ihre unverbindliche Vorbestellung mit nur einem Klick zu einer verbindlichen Bestellung umwandeln. Im Anschluss kann über PayPal bezahlt werden. Nach Zahlungseingang wird die Ware versendet.\n    </p>\n</div>\n\n<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
+    + "*</td>\n            </tr>\n            </tfoot>\n        </table>\n    </div>\n\n    <div class=\"col-md-12\">\n        <h3>Zustandekommen des Auftrags</h3>\n\n        <p>\n            Es handelt sich hierbei um einen unverbindlichen Vorverkauf. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.\n        </p>\n    </div>\n\n    <div class=\"col-md-12\">\n        <h3>Bestellablauf</h3>\n\n        <p>\n            Wenige Tage nach Abschluss Ihrer unverbindlichen Vorbestellung, erhalten Sie in eine E-Mail als bestätigung, dass Ihre Vorbestellung bei uns eingegangen ist.\n            Sobald wir die Ware lagernd haben, erhalten Sie erneut eine E-Mail von uns. Die E-Mail wird einen Link beinhalten, welcher zu unserem Shop führt.\n            Dort angekommen, können Sie Ihre unverbindliche Vorbestellung mit nur einem Klick zu einer verbindlichen Bestellung umwandeln. Im Anschluss kann über PayPal bezahlt werden. Nach Zahlungseingang wird die Ware versendet.\n        </p>\n    </div>\n\n    <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">zurück zu Schritt 2</button>\n"
     + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(8, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n";
 },"2":function(container,depth0,helpers,partials,data) {
@@ -2171,25 +2171,25 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 },"4":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "        <tr>\n            <td class=\"cart-td-article\">"
+  return "                <tr>\n                    <td class=\"cart-td-article\">"
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"item_name",{"name":"get","hash":{},"data":data}))
-    + "</td>\n            <td class=\"cart-td-quantity\">"
+    + "</td>\n                    <td class=\"cart-td-quantity\">"
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"quantity",{"name":"get","hash":{},"data":data}))
-    + "</td>\n            <td class=\"cart-td-unitprice\">"
+    + "</td>\n                    <td class=\"cart-td-unitprice\">"
     + alias3((helpers.amount || (depth0 && depth0.amount) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"amount","hash":{},"data":data}))
-    + "*</td>\n            <td class=\"cart-td-sum\">"
+    + "*</td>\n                    <td class=\"cart-td-sum\">"
     + alias3((helpers.total || (depth0 && depth0.total) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"total","hash":{},"data":data}))
-    + "*</td>\n        </tr>\n";
+    + "*</td>\n                </tr>\n";
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return "                    <span >\n                        "
+  return "                        <span >\n                            "
     + container.escapeExpression((helpers.subtotal || (depth0 && depth0.subtotal) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"subtotal","hash":{},"data":data}))
-    + "\n                    </span>\n";
+    + "\n                        </span>\n";
 },"8":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=container.lambda;
 
-  return "            <button type=\"submit\" data-minicart-role=\"minicart-submit\" data-minicart-alt=\""
+  return "        <button type=\"submit\" data-minicart-role=\"minicart-submit\" data-minicart-alt=\""
     + container.escapeExpression(alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.buttonAlt), depth0))
     + "\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\">"
     + ((stack1 = alias1(((stack1 = ((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.strings)) && stack1.button), depth0)) != null ? stack1 : "")
