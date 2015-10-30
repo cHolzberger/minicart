@@ -2133,8 +2133,6 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "> Ich akzeptiere die <a href=\"/agb\" target=\"_blank\">allgemeinen Geschäftsbedingungen</a> und die\n                Bestimmungen zum <a href=\"/datenschutzerklaerung\" target=\"_blank\">Datenschutz</a>. Die Informationen zum <a href=\"/widerruf\" target=\"_blank\">Widerrufsrecht</a>\n                wurden mir zur Verfügung gestellt.\n            </label>\n        </div>\n    </div>\n\n\n    <div class=\"col-md-6 col-sm-6 col-xs-12 cart-box\">\n        <h3>Rechnungsadresse</h3>\n\n        <p>\n            "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:firma",{"name":"getFormValue","hash":{},"data":data}))
     + "<br/>\n            "
-    + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:anrede",{"name":"getFormValue","hash":{},"data":data}))
-    + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:vorname",{"name":"getFormValue","hash":{},"data":data}))
     + " "
     + alias3((helpers.getFormValue || (depth0 && depth0.getFormValue) || alias2).call(alias1,"billing:nachname",{"name":"getFormValue","hash":{},"data":data}))
