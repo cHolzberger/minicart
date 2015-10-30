@@ -1,31 +1,32 @@
 {{#with cart}}
 
-<h2 class="text-center">Prüfen und Bestellen</h2>
+    <h2 class="text-center">Prüfen und Bestellen</h2>
 
-<div class="col-md-12 cart-box">
-    <h3>AGB und Widerrufsbelehrung</h3>
+    <div class="col-md-12 cart-box">
+        <h3>AGB und Widerrufsbelehrung</h3>
 
-    <div class="checkbox col-md-12">
-        <label>
-            <input type="checkbox" data-minicart-role="persist" name="agb" id="agb" value="checked" {{#if (getPersistValue 'agb')}}checked="checked"{{/if}}> Ich akzeptiere die <a href="#">allgemeinen Geschäftsbedingungen</a> und die
-            Bestimmungen zum <a href="#">Datenschutz</a>. Die Informationen zum <a href="#">Widerrufsrecht</a>
-            wurden mir zur Verfügung gestellt.
-        </label>
+        <div class="checkbox col-md-12">
+            <label>
+                <input type="checkbox" data-minicart-role="persist" name="agb" id="agb" value="checked" {{#if (getPersistValue 'agb')}}checked="checked"{{/if}}> Ich akzeptiere die <a href="/agb" target="_blank">allgemeinen Geschäftsbedingungen</a> und die
+                Bestimmungen zum <a href="/datenschutzerklaerung" target="_blank">Datenschutz</a>. Die Informationen zum <a href="/widerruf" target="_blank">Widerrufsrecht</a>
+                wurden mir zur Verfügung gestellt.
+            </label>
+        </div>
     </div>
-</div>
 
-<div class="col-md-4 cart-box">
-    <h3>Rechnungsadresse</h3>
 
-    <p>
-        {{getFormValue "billing:firma"}}<br/>
-        {{getFormValue "billing:anrede"}} {{getFormValue "billing:vorname"}} {{getFormValue "billing:nachname"}}<br/>
-        {{getFormValue "billing:strasse"}} <br/>
-        {{getFormValue "billing:plz"}} {{getFormValue "billing:ort"}}<br/>
-        {{getFormValue "billing:land"}}
-    </p>
-</div>
-<!--
+    <div class="col-md-6 col-sm-6 col-xs-12 cart-box">
+        <h3>Rechnungsadresse</h3>
+
+        <p>
+            {{getFormValue "billing:firma"}}<br/>
+            {{getFormValue "billing:anrede"}} {{getFormValue "billing:vorname"}} {{getFormValue "billing:nachname"}}<br/>
+            {{getFormValue "billing:strasse"}} <br/>
+            {{getFormValue "billing:plz"}} {{getFormValue "billing:ort"}}<br/>
+            {{getFormValue "billing:land"}}
+        </p>
+    </div>
+    <!--
 <div class="col-md-4 cart-box">
     <h3>Lieferadresse</h3>
 
@@ -38,76 +39,95 @@
     </p>
 </div>
 -->
-<div class="col-md-4 cart-box">
-    <h3>Zahlung und Versand</h3>
+    <div class="col-md-6 col-sm-6 col-xs-12 cart-box">
+        <h3>Zahlung und Versand</h3>
 
-    <p>
-        <b>Zahlungsart:</b> PayPal<br/>
-        <b>Versandart:</b> DHL
-    </p>
-</div>
+        <p>
+            <b>Zahlungsart:</b> PayPal<br/>
+            <b>Versandart:</b> DHL<br/>
+            <b>Liefertermin:</b> voraussichtlich Dezember 2015
+        </p>
+    </div>
 
-<div class="col-md-12 cart-box">
-    <h3>Warenkorb</h3>
-    <table class="table table-striped table-hover table-responsive cart-table">
-        <thead>
-        <tr>
-            <th class="cart-th-article">Artikel</th>
-            <th class="cart-th-quantity">Anzahl</th>
-            <th class="cart-th-unitprice">Stückpreis</th>
-            <th class="cart-th-sum">Summe</th>
-        </tr>
-        </thead>
-        <tbody>
-{{#each items}}
-        <tr>
-            <td class="cart-td-article">{{get "item_name"}}</td>
-            <td class="cart-td-quantity">{{get "quantity"}}</td>
-            <td class="cart-td-unitprice">{{amount @root/priceFormat}}*</td>
-            <td class="cart-td-sum">{{total @root/priceFormat}}*</td>
-        </tr>
-{{/each}}
-        </tbody>
-        <tfoot>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>Warenwert:</td>
-            <td>
-                {{#if @root/hasItems}}
-                    <span >
-                        {{subtotal @root/priceFormat}}
-                    </span>
-                {{/if}}
-            </td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>zzgl. Versandkosten:</td>
-            <td><span>
-                {{shipping_global @root/priceFormat}}
-            </span>*</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td class="font-bold">Gesamtpreis:</td>
-            <td class="font-bold"><span>{{total @root/totalFormat}}</span>*</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td>inkl. {{@root/config.tax}}% MwSt.:</td>
-            <td>{{tax @root/priceFormat}}*</td>
-        </tr>
-        </tfoot>
-    </table>
-</div>
+    <div class="col-md-12 cart-box">
+        <h3>Warenkorb</h3>
+        <table class="table table-striped table-hover table-responsive cart-table">
+            <thead>
+            <tr>
+                <th class="cart-th-article">Artikel</th>
+                <th class="cart-th-quantity">Anzahl</th>
+                <th class="cart-th-unitprice">Stückpreis</th>
+                <th class="cart-th-sum">Summe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each items}}
+                <tr>
+                    <td class="cart-td-article">{{get "item_name"}}</td>
+                    <td class="cart-td-quantity">{{get "quantity"}}</td>
+                    <td class="cart-td-unitprice">{{amount @root/priceFormat}}*</td>
+                    <td class="cart-td-sum">{{total @root/priceFormat}}*</td>
+                </tr>
+            {{/each}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Warenwert:</td>
+                <td>
+                    {{#if @root/hasItems}}
+                        <span >
+                            {{subtotal @root/priceFormat}}
+                        </span>
+                    {{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>zzgl. Versandkosten:</td>
+                <td><span>
+                    {{shipping_global @root/priceFormat}}
+                </span>*</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="font-bold">Gesamtpreis:</td>
+                <td class="font-bold"><span>{{total @root/totalFormat}}</span>*</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>inkl. {{@root/config.tax}}% MwSt.:</td>
+                <td>{{tax @root/priceFormat}}*</td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
 
-<button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">zurück zu Schritt 2</button>
+    <div class="col-md-12 cart-box">
+        <h3>Zustandekommen des Auftrags</h3>
+
+        <p>
+            Es handelt sich hierbei um einen unverbindlichen Vorverkauf. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.
+        </p>
+    </div>
+
+    <div class="col-md-12 cart-box">
+        <h3>Bestellablauf</h3>
+
+        <p>
+            Wenige Tage nach Abschluss Ihrer unverbindlichen Vorbestellung, erhalten Sie in eine E-Mail als bestätigung, dass Ihre Vorbestellung bei uns eingegangen ist.
+            Sobald wir die Ware lagernd haben, erhalten Sie erneut eine E-Mail von uns. Die E-Mail wird einen Link beinhalten, welcher zu unserem Shop führt.
+            Dort angekommen, können Sie Ihre unverbindliche Vorbestellung mit nur einem Klick zu einer verbindlichen Bestellung umwandeln. Im Anschluss kann über PayPal bezahlt werden. Nach Zahlungseingang wird die Ware versendet.
+        </p>
+    </div>
+
+    <button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">zurück zu Schritt 2</button>
     {{#if @root/hasItems}}
-            <button type="submit" data-minicart-role="minicart-submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12">{{{@root/config.strings.button}}}</button>
+        <button type="submit" data-minicart-role="minicart-submit" data-minicart-alt="{{@root/config.strings.buttonAlt}}" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12">{{{@root/config.strings.button}}}</button>
     {{/if}}
 
 {{/with}}
