@@ -24,6 +24,14 @@ module.exports = viewevents = {
             // Product quantity input
             } else if (minicartRole === constants.QUANTITY_CLASS) {
                 target[target.setSelectionRange ? 'setSelectionRange' : 'select'](0, 999);
+            else if (minicartRole === constants.INPUT_PERSIST) {
+                    //fixme see keyup - dupl code
+
+                    if ( target.getAttribute("type") ==="checkbox") {
+                        this.model.cart.form[target.getAttribute('name')] =  target.checked? target.value:"";
+                    } else {
+                        this.model.cart.form[target.getAttribute('name')] = target.value;
+                    }
             // Outside the cart
             } else if (!(/input|button|select|option/i.test(target.tagName))) {
                 while (target.nodeType === 1) {
