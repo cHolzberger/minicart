@@ -12,26 +12,26 @@
         <div class="cart-box cart-form-contactInfo">
             <h3 class="col-md-12">Ihre Kontaktdaten</h3>
 
-            {{> ./input.hbs name="kontakt_email" label="E-Mail Adresse" required=true }}
-            {{> ./input.hbs name="kontakt_email" label="E-Mail Adresse wiederholen" required=true }}
+            {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse" required=true }}
+            {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse wiederholen" required=true }}
             <div class="clearfix"></div>
         </div>
 
 
         <div class="cart-box cart-form-billingAddress">
             <h3 class="col-md-12">Ihre Adresse</h3>
-            {{> ./input.hbs name="billing_firma" label="Firma" required=true }}
+            {{> ./input.hbs name="billing:firma" label="Firma" required=true }}
 
-            {{> ./input.hbs name="billing_vorname" label="Vorname" required=true }}
-            {{> ./input.hbs name="billing_nachname" label="Nachname" required=true }}
+            {{> ./input.hbs name="billing:vorname" label="Vorname" required=true }}
+            {{> ./input.hbs name="billing:nachname" label="Nachname" required=true }}
 
-            {{> ./anrede.hbs name="billing_anrede" label="Anrede" required=true }}
+            {{> ./anrede.hbs name="billing:anrede" label="Anrede" required=true }}
 
-            {{> ./input.hbs name="billing_strasse" label="Straße und Nr." required=true size=12}}
-            {{> ./input.hbs name="billing_plz" label="PLZ" required=true size=4}}
-            {{> ./input.hbs name="billing_ort" label="Ort" required=true size=8}}
+            {{> ./input.hbs name="billing:strasse" label="Straße und Nr." required=true size=12}}
+            {{> ./input.hbs name="billing:plz" label="PLZ" required=true size=4}}
+            {{> ./input.hbs name="billing:ort" label="Ort" required=true size=8}}
 
-            {{> ./land.hbs name="billing_land" label="Land" required=true }}
+            {{> ./land.hbs name="billing:land" label="Land" required=true }}
             <!--
             <div class="checkbox col-md-12">
                 <label>
@@ -45,16 +45,16 @@
 <!--
         <div class="cart-box cart-form-deliveryAddress">
             <h3 class="col-md-12">Lieferadresse</h3>
-            {{> ./input.hbs name="shipping_firma" label="Firma" required=true }}
+            {{> ./input.hbs name="shipping:firma" label="Firma" required=true }}
 
-            {{> ./input.hbs name="shipping_vorname" label="Vorname" required=true }}
-            {{> ./input.hbs name="shipping_nachname" label="Nachname" required=true }}
+            {{> ./input.hbs name="shipping:vorname" label="Vorname" required=true }}
+            {{> ./input.hbs name="shipping:nachname" label="Nachname" required=true }}
 
-            {{> ./anrede.hbs name="shipping_anrede" label="Anrede" required=true }}
-            {{> ./input.hbs name="shipping_strasse" label="Straße und Nr." required=true size=12}}
-            {{> ./input.hbs name="shipping_plz" label="PLZ" required=true size=4}}
-            {{> ./input.hbs name="shipping_ort" label="Ort" required=true size=8}}
-            {{> ./land.hbs name="shipping_land" label="Land" required=true }}
+            {{> ./anrede.hbs name="shipping:anrede" label="Anrede" required=true }}
+            {{> ./input.hbs name="shipping:strasse" label="Straße und Nr." required=true size=12}}
+            {{> ./input.hbs name="shipping:plz" label="PLZ" required=true size=4}}
+            {{> ./input.hbs name="shipping:ort" label="Ort" required=true size=8}}
+            {{> ./land.hbs name="shipping:land" label="Land" required=true }}
 
 
             <div class="clearfix"></div>
@@ -77,6 +77,6 @@
     </form>
 
     <button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="default">zurück zu Schritt 1</button>
-    <button type="button" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3_ Prüfen und Bestellen</button>
+    <button type="button" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3: Prüfen und Bestellen</button>
 </div>
 
