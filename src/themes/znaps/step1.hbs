@@ -3,6 +3,8 @@
 
         <h2 class="text-center">Warenkorb</h2>
 
+        {{#if @root/hasItems}}
+
         <div class="col-md-12 alert alert-info text-center" role="alert">
             <b>Bitte beachten Sie</b><br/>
             Die Vorbestellung unserer Produkte erfolgt in handelsüblichen Mengen.<br/>
@@ -40,6 +42,9 @@
             <div class="col-md-12 cart-box">
 
                 <h3>Warenkorb bearbeiten</h3>
+
+
+
 
                 <table class="table table-striped table-hover table-responsive cart-table">
                     <thead>
@@ -114,10 +119,19 @@
                     </tfoot>
                 </table>
 
+
             </div>
 
         </div>
 
-        <button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 hidden-xs">weiter einkaufen</button>
+        {{else}}
+            <div class="col-md-12 alert alert-info text-center" role="alert">
+                <b>Ihr Warenkorb ist noch leer.</b>
+            </div>
+        {{/if}}
+
+        <!--<button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 hidden-xs">weiter einkaufen</button>-->
+        {{#if @root/hasItems}}
         <button type="button" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step2">Schritt 2: Ihre Adresse</button>
+        {{/if}}
 {{/with}}

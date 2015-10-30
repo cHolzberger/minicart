@@ -1972,12 +1972,19 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
 // hbsfy compiled Handlebars template
 var HandlebarsCompiler = require('hbsfy/runtime');
 module.exports = HandlebarsCompiler.template({"1":function(container,depth0,helpers,partials,data) {
+    var stack1, alias1=depth0 != null ? depth0 : {};
+
+  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(2, data, 0),"inverse":container.program(7, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n        <!--<button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 hidden-xs\">weiter einkaufen</button>-->\n"
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(9, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "");
+},"2":function(container,depth0,helpers,partials,data) {
     var stack1, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression;
 
-  return "\n\n        <h2 class=\"text-center\">Warenkorb</h2>\n\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Die Vorbestellung unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
-    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(2, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  return "\n        <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n            <b>Bitte beachten Sie</b><br/>\n            Die Vorbestellung unserer Produkte erfolgt in handelsüblichen Mengen.<br/>\n            Die maximale Menge eines Artikels pro Kunde beträgt 5 Stück.\n        </div>\n\n\n        <div class=\"row\">\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Zahlungsart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Zahlungsart\" id=\"Zahlungsart\" value=\"Zahlungsart\" checked>\n                        <b>PayPal</b><br/>\n                        Sicher, einfach und schnell. Inklusive Käuferschutz.\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-6 col-xs-12 col-sm-6 cart-box\">\n                <h3>Versandart</h3>\n\n                <div class=\"radio\">\n                    <label>\n                        <input type=\"radio\" name=\"Versandart\" id=\"Versandart\" value=\"Versandart\" checked>\n                        <b>DHL</b><br/>\n                        Versicherter Versand.\n                    </label>\n                    </label>\n                </div>\n            </div>\n\n            <div class=\"col-md-12 cart-box\">\n\n                <h3>Warenkorb bearbeiten</h3>\n\n\n\n\n                <table class=\"table table-striped table-hover table-responsive cart-table\">\n                    <thead>\n                    <tr>\n                        <th class=\"cart-th-article\">Artikel</th>\n                        <th class=\"cart-th-quantity\">Anzahl</th>\n                        <th class=\"cart-th-unitprice\">Stückpreis</th>\n                        <th class=\"cart-th-sum\">Summe</th>\n                    </tr>\n                    </thead>\n                    <tbody>\n"
+    + ((stack1 = helpers.each.call(alias1,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n                    </tbody>\n                    <tfoot class=\"minicart-footer\">\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>Warenwert:</td>\n                        <td>\n"
-    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(4, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers["if"].call(alias1,((stack1 = (data && data.root)) && stack1.hasItems),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "                        </td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td>zzgl. Versandkosten:</td>\n                        <td><span data-minicart-role=\"minicart-shipping-global\">\n                            "
     + alias3((helpers.shipping_global || (depth0 && depth0.shipping_global) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"shipping_global","hash":{},"data":data}))
     + "\n                            </span>*</td>\n                    </tr>\n                    <tr>\n                        <td></td>\n                        <td></td>\n                        <td class=\"font-bold\">Gesamtpreis:</td>\n                        <td class=\"font-bold\"><span data-minicart-role=\"minicart-price\">"
@@ -1986,8 +1993,8 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + alias3(container.lambda(((stack1 = ((stack1 = (data && data.root)) && stack1.config)) && stack1.tax), depth0))
     + "% MwSt.:</td>\n                        <td>"
     + alias3((helpers.tax || (depth0 && depth0.tax) || alias2).call(alias1,((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"tax","hash":{},"data":data}))
-    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n            </div>\n\n        </div>\n\n        <button type=\"button\" class=\"btn btn-default pull-left col-md-5 col-sm-5 hidden-xs\">weiter einkaufen</button>\n        <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">Schritt 2: Ihre Adresse</button>\n";
-},"2":function(container,depth0,helpers,partials,data) {
+    + "*</td>\n                    </tr>\n                    </tfoot>\n                </table>\n\n\n            </div>\n\n        </div>\n\n";
+},"3":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3=container.escapeExpression, alias4="function";
 
   return "                        <tr data-minicart-role=\"minicart-item\">\n                            <td class=\"cart-td-article \">\n                                <a data-minicart-role=\"minicart-name\" href=\""
@@ -2023,12 +2030,16 @@ module.exports = HandlebarsCompiler.template({"1":function(container,depth0,help
     + "\" value=\""
     + alias3((helpers.get || (depth0 && depth0.get) || alias2).call(alias1,"shipping2",{"name":"get","hash":{},"data":data}))
     + "\"/>\n                            </td>\n                        </tr>\n";
-},"4":function(container,depth0,helpers,partials,data) {
+},"5":function(container,depth0,helpers,partials,data) {
     var stack1;
 
   return "                                <span data-minicart-role=\"minicart-subtotal\">\n                                    "
     + container.escapeExpression((helpers.subtotal || (depth0 && depth0.subtotal) || helpers.helperMissing).call(depth0 != null ? depth0 : {},((stack1 = (data && data.root)) && stack1.priceFormat),{"name":"subtotal","hash":{},"data":data}))
     + "\n                                </span>\n";
+},"7":function(container,depth0,helpers,partials,data) {
+    return "            <div class=\"col-md-12 alert alert-info text-center\" role=\"alert\">\n                <b>Ihr Warenkorb ist noch leer.</b>\n            </div>\n";
+},"9":function(container,depth0,helpers,partials,data) {
+    return "        <button type=\"button\" class=\"btn btn-success pull-right col-md-5 col-sm-5 col-xs-12\"  data-minicart-role=\"change-state\" data-minicart-target-state=\"step2\">Schritt 2: Ihre Adresse</button>\n";
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
