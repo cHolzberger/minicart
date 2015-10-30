@@ -110,8 +110,15 @@
     <div class="col-md-12">
         <h3>Zustandekommen des Auftrags</h3>
 
+        <div class="checkbox col-md-12">
+            <label>
+                <input type="checkbox" data-minicart-role="persist" name="unverbindlich" id="unverbindlich" value="checked" {{#if (getPersistValue 'unverbindlich')}}checked="checked"{{/if}}>
+                Ich habe verstanden, dass es sich hierbei um einen unverbindlichen Vorverkauf handelt. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.
+            </label>
+        </div>
+
         <p>
-            Es handelt sich hierbei um einen unverbindlichen Vorverkauf. Ein Auftrag kommt erst zustande, nachdem dieser von MOSAIK Software angenommen und darüber hinaus schriftlich (E-Mail) bestätigt worden ist.
+
         </p>
     </div>
 
