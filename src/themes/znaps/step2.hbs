@@ -13,14 +13,14 @@
             <h3 class="col-md-12">Ihre Kontaktdaten</h3>
 
             {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse" required=true }}
-            {{> ./input.hbs name="kontakt:email" label="E-Mail Adresse wiederholen" required=true }}
+            {{> ./input.hbs name="kontakt:email_repeat" label="E-Mail Adresse wiederholen" required=true }}
             <div class="clearfix"></div>
         </div>
 
 
         <div class="cart-box cart-form-billingAddress">
             <h3 class="col-md-12">Ihre Adresse</h3>
-            {{> ./input.hbs name="billing:firma" label="Firma" required=true }}
+            {{> ./input.hbs name="billing:firma" label="Firma" required=false }}
 
             {{> ./input.hbs name="billing:vorname" label="Vorname" required=true }}
             {{> ./input.hbs name="billing:nachname" label="Nachname" required=true }}
@@ -77,6 +77,6 @@
     </form>
 
     <button type="button" class="btn btn-default pull-left col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="default">zurück zu Schritt 1</button>
-    <button type="button" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3: Prüfen und Bestellen</button>
+    <button type="button" id="cart_step2" class="btn btn-success pull-right col-md-5 col-sm-5 col-xs-12"  data-minicart-role="change-state" data-minicart-target-state="step3">Schritt 3: Prüfen und Bestellen</button>
 </div>
 
