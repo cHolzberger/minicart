@@ -50,14 +50,18 @@ View.prototype.redraw = function redraw() {
         events.add(this.el.querySelector('form'), 'submit', this.model.cart.checkout, this.model.cart);
     }
     for ( var state_name in config.template_states) {
+
         var state_container = document.querySelectorAll('[data-minicart-role=\'state:' +state_name+ '\']')[0];
+        var state_indicator = document.querySelectorAll('[data-minicart-role=\'data-minicart-indicator\']')[0];
+
         state_container.innerHTML = template(config.template_states[state_name],this.model);
 
         if ( state_name === this.state) {
             state_container.style.display='block';
+            state_indicator.setAttribute("class", "active");
         } else {
             state_container.style.display='none';
-
+            state_indicator.setAttribute("class", "disabled");
         }
     }
 };
