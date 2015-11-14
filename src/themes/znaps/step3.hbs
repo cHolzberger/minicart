@@ -45,7 +45,6 @@
         <p>
             <b>Zahlungsart:</b> PayPal<br/>
             <b>Versandart:</b> DHL<br/>
-            <b>Liefertermin:</b> voraussichtlich Dezember 2015
         </p>
     </div>
 
@@ -63,7 +62,7 @@
             <tbody>
             {{#each items}}
                 <tr>
-                    <td class="cart-td-article">{{get "item_name"}}</td>
+                    <td class="cart-td-article">{{get "item_name"}}<br/>{{get "item_est_shipping"}}</td>
                     <td class="cart-td-quantity">{{get "quantity"}}</td>
                     <td class="cart-td-unitprice">{{amount @root/priceFormat}}*</td>
                     <td class="cart-td-sum">{{total @root/priceFormat}}*</td>
